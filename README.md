@@ -32,7 +32,14 @@
 ## 💼 Experiencia
 
 **Helius Consulting** — Desarrollador Web / Móvil *(Sep 2025 – Jun 2026)*
-> Desarrollo de sistemas de gestión, reportes, coworking y facturación en frontend, backend y mobile. Arquitectura limpia, SOLID y patrones MVC/hexagonal. Metodologías ágiles, control de versiones y automatización con IA.
+> Participé en el ciclo completo de desarrollo de software: relevamiento de requerimientos, desarrollo y despliegue en producción, con atención directa al cliente. Trabajé en frontend, backend y mobile construyendo sistemas de gestión, reportes, coworking y facturación a medida.
+>
+> - Desarrollé un sistema de facturación moderno con flujos de trabajo automatizados y seguimiento de uso en tiempo real
+> - Implementé un sistema de gestión de inventario predictivo integrado a la aplicación web
+> - Construí características orientadas a la comunidad para mejorar la participación de usuarios
+> - Optimicé el proceso de facturación reduciendo fricción en los flujos principales
+>
+> Apliqué arquitectura limpia, principios SOLID y patrones MVC/hexagonal. Trabajé bajo metodologías ágiles con gestión por tickets, control de versiones e integración de automatización con IA.
 
 **Proyecto Personal** — Sistema de Gestión Full Stack
 > Sistema de citas para negocios (barberías). API REST con Node.js, Express 5, TypeScript y Arquitectura Hexagonal. PostgreSQL + Prisma ORM, JWT, bcrypt, Zod, ts-jest y Swagger. Frontend en Next.js con patrón contenedor-presentacional.
