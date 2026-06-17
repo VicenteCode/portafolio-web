@@ -13,7 +13,6 @@ export const HERRAMIENTAS: Herramienta[] = [
   { id: "swagger",         nombre: "Swagger",                icono: "swagger"         },
   { id: "androidstudio",   nombre: "Android Studio",         icono: "androidstudio"   },
   { id: "azuredevops",     nombre: "Azure DevOps",           icono: "azuredevops"     },
-  { id: "azurepipelines",  nombre: "Azure Pipelines",        icono: "azurepipelines"  },
   { id: "jira",            nombre: "Jira",                   icono: "jira"            },
   { id: "figma",           nombre: "Figma",                  icono: "figma"           },
   { id: "cli",             nombre: "CLI",                    icono: "cli"             },
