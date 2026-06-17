@@ -19,12 +19,6 @@ export const metadata: Metadata = {
       "Software developer specialized in the JavaScript ecosystem — web apps, frontend architecture and modern tooling.",
     siteName: "VicenteCode",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "VicenteCode",
-    description:
-      "Software developer specialized in the JavaScript ecosystem — web apps, frontend architecture and modern tooling.",
-  },
 };
 
 export default function RootLayout({
