@@ -14,7 +14,7 @@ export function Hero() {
         <Avatar
           src="/avatar.png"
           alt="VicenteCode avatar"
-          size="xl"
+          size="2xl"
           shape="circle"
           ring
           shadow="lg"

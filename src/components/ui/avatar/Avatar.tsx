@@ -4,7 +4,8 @@ const sizeMap = {
   sm: { container: "h-16 w-16", sizes: "64px" },
   md: { container: "h-32 w-32", sizes: "128px" },
   lg: { container: "h-64 w-64", sizes: "256px" },
-  xl: { container: "h-96 w-96", sizes: "384px" },
+  xl:  { container: "h-96 w-96",   sizes: "384px" },
+  "2xl": { container: "h-[28rem] w-[28rem]", sizes: "448px" },
 } as const;
 
 const shapeMap = {
