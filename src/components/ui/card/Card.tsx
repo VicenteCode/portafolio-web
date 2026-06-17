@@ -1,11 +1,11 @@
 import type { ReactNode } from 'react'
 
 const variantMap = {
-  default:  'border border-zinc-800 bg-zinc-900',
-  elevated: 'border border-zinc-800 bg-zinc-900 shadow-lg shadow-zinc-950/60',
+  default:  'border border-border bg-surface',
+  elevated: 'border border-border bg-surface shadow-lg shadow-surface-sunken/60',
   ghost:    'bg-transparent',
-  outlined: 'border border-zinc-700 bg-transparent',
-  filled:   'bg-zinc-800 border-transparent',
+  outlined: 'border border-border-subtle bg-transparent',
+  filled:   'bg-surface-raised border-transparent',
 } as const
 
 const paddingMap = {
@@ -23,11 +23,11 @@ const radiusMap = {
 } as const
 
 const hoverMap = {
-  default:  'transition-colors duration-200 hover:bg-zinc-800',
-  elevated: 'transition-shadow duration-200 hover:shadow-xl hover:shadow-zinc-950/80',
-  ghost:    'transition-colors duration-200 hover:bg-zinc-900',
-  outlined: 'transition-colors duration-200 hover:border-zinc-500',
-  filled:   'transition-colors duration-200 hover:bg-zinc-700',
+  default:  'transition-colors duration-200 hover:bg-surface-raised',
+  elevated: 'transition-shadow duration-200 hover:shadow-xl hover:shadow-surface-sunken/80',
+  ghost:    'transition-colors duration-200 hover:bg-surface',
+  outlined: 'transition-colors duration-200 hover:border-border-strong',
+  filled:   'transition-colors duration-200 hover:bg-surface-raised/70',
 } as const
 
 type CardProps = {
