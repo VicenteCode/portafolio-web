@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
+
 @theme {
   --font-comic: var(--font-bangers);
   --font-montserrat: var(--font-montserrat);
