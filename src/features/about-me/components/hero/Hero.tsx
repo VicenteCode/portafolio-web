@@ -4,7 +4,7 @@ import { Title, SubTitle, Legend } from "@/features/about-me/components/header";
 export function Hero() {
   return (
     <section id="about" className="min-h-screen flex items-center">
-      <div className="flex flex-col lg:flex-row w-full items-center gap-10 py-24 lg:py-0">
+      <div className="flex flex-col lg:flex-row w-full items-center gap-4 py-24 lg:py-0">
         <div className="flex flex-1 flex-col gap-6">
           <Title />
           <div className="flex flex-col gap-3">
