@@ -1,1 +1,0 @@
-export { ContentSkills } from "./ContentSkills";
