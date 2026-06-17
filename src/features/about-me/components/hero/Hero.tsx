@@ -1,7 +1,5 @@
 import { Avatar } from "@/components/ui/avatar";
-import { Title } from "@/features/about-me/components/title";
-import { AboutCard } from "@/features/about-me/components/card";
-import { HERO_TITLES } from "@/features/about-me/constants/titles";
+import { Title, SubTitle } from "@/features/about-me/components/header";
 
 export function Hero() {
   return (
@@ -18,9 +16,8 @@ export function Hero() {
           className="lg:h-112! lg:w-md!"
         />
         <div className="flex flex-1 flex-col gap-8 lg:pb-40">
-          <Title texts={HERO_TITLES} interval={2500} />
-          <hr className="border-border-subtle w-16" />
-          <AboutCard />
+          <Title />
+          <SubTitle />
         </div>
       </div>
     </section>
