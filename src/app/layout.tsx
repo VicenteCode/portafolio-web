@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "VicenteCode",
+    default: "VicenteCode - Portfolio Website",
     template: "%s | VicenteCode",
   },
   description:
