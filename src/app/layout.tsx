@@ -2,8 +2,23 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Portfolio",
-  description: "Personal portfolio",
+  title: {
+    default: "VicenteCode - Portfolio Website",
+    template: "%s | VicenteCode",
+  },
+  description:
+    "Software developer specialized in the JavaScript ecosystem — web apps, frontend architecture and modern tooling.",
+  keywords: ["VicenteCode", "software developer", "JavaScript", "TypeScript", "React", "Next.js", "frontend"],
+  authors: [{ name: "VicenteCode" }],
+  creator: "VicenteCode",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    title: "VicenteCode - Portfolio Website",
+    description:
+      "Software developer specialized in the JavaScript ecosystem — web apps, frontend architecture and modern tooling.",
+    siteName: "VicenteCode",
+  },
 };
 
 export default function RootLayout({
