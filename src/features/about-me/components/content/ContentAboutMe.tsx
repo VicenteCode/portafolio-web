@@ -1,6 +1,9 @@
+import { Title } from "@/features/about-me/components/title";
+
 export function ContentAboutMe() {
   return (
-    <section id="content">
+    <section id="about-me">
+      <Title />
     </section>
   );
 }
