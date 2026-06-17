@@ -19,11 +19,7 @@ export function Hero() {
           ring
           shadow="lg"
         />
-        <Title
-          texts={titles}
-          interval={2500}
-          className="text-2xl font-semibold text-zinc-100"
-        />
+        <Title texts={titles} interval={2500} />
       </div>
     </section>
   );
