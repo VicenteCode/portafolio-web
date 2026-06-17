@@ -1,5 +1,5 @@
 import { Avatar } from "@/components/ui/avatar";
-import { Title, SubTitle } from "@/features/about-me/components/header";
+import { Title, SubTitle, Legend } from "@/features/about-me/components/header";
 
 export function Hero() {
   return (
@@ -18,6 +18,7 @@ export function Hero() {
         <div className="flex flex-1 flex-col gap-8 lg:pb-40">
           <Title />
           <SubTitle />
+          <Legend />
         </div>
       </div>
     </section>
