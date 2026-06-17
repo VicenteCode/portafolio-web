@@ -4,7 +4,7 @@ import { Moon } from "@/features/about-me/components/animation";
 
 export function ContentAboutMe() {
   return (
-    <section id="about-me" className="flex flex-col py-20">
+    <section id="about-me" className="flex flex-col py-10">
       <Title />
       <div className="mt-16 flex flex-col lg:flex-row items-center gap-24">
         <AboutCard />
