@@ -34,7 +34,7 @@ export function Navbar({ links, logo, className }: NavbarProps) {
         .join(" ")
         .trim()}
     >
-      <nav className="h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center md:justify-between">
+      <nav className="h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {logo && <div className="shrink-0">{logo}</div>}
 
         {/* Desktop links */}
@@ -68,7 +68,7 @@ export function Navbar({ links, logo, className }: NavbarProps) {
           onClick={toggle}
           aria-label={isOpen ? "Close menu" : "Open menu"}
           aria-expanded={isOpen}
-          className="md:hidden relative z-50 flex h-8 w-8 flex-col items-center justify-center gap-1.5"
+          className="md:hidden ms-auto relative z-50 flex h-8 w-8 flex-col items-center justify-center gap-1.5"
         >
           <span className={`block h-0.5 w-6 bg-zinc-100 transition-all duration-300 ${isOpen ? "translate-y-2 rotate-45" : ""}`} />
           <span className={`block h-0.5 w-6 bg-zinc-100 transition-all duration-300 ${isOpen ? "opacity-0" : ""}`} />
