@@ -10,7 +10,7 @@ export function Hero() {
           size="xl"
           shape="circle"
           ring
-          shadow
+          shadow="lg"
         />
       </div>
     </section>

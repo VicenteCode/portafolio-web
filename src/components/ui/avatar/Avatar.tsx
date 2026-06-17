@@ -12,12 +12,18 @@ const shapeMap = {
   rounded: "rounded-2xl",
 } as const;
 
+const shadowMap = {
+  sm: "drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]",
+  md: "drop-shadow-[0_0_40px_rgba(255,255,255,0.3)]",
+  lg: "drop-shadow-[0_0_60px_rgba(255,255,255,0.35)]",
+} as const;
+
 type AvatarProps = {
   src: string;
   alt: string;
   size?: keyof typeof sizeMap;
   shape?: keyof typeof shapeMap;
-  shadow?: boolean;
+  shadow?: keyof typeof shadowMap;
   ring?: boolean;
   className?: string;
 };
@@ -27,7 +33,7 @@ export function Avatar({
   alt,
   size = "md",
   shape = "circle",
-  shadow = false,
+  shadow,
   ring = false,
   className = "",
 }: AvatarProps) {
@@ -40,7 +46,7 @@ export function Avatar({
         container,
         shapeMap[shape],
         ring ? "ring-2 ring-zinc-700" : "",
-        shadow ? "shadow-[0_0_60px_20px_rgba(255,255,255,0.18),0_0_120px_50px_rgba(255,255,255,0.08)]" : "",
+        shadow ? shadowMap[shadow] : "",
         className,
       ]
         .filter(Boolean)
