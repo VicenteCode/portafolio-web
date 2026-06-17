@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useRotatingText } from "@/features/about-me/hooks/useRotatingText";
 
 type TitleProps = {
   texts: string[];
@@ -9,20 +9,7 @@ type TitleProps = {
 };
 
 export function Title({ texts, interval = 2500, className = "" }: TitleProps) {
-  const [index, setIndex] = useState(0);
-  const [visible, setVisible] = useState(true);
-
-  useEffect(() => {
-    const id = setInterval(() => {
-      setVisible(false);
-      setTimeout(() => {
-        setIndex((i) => (i + 1) % texts.length);
-        setVisible(true);
-      }, 300);
-    }, interval);
-
-    return () => clearInterval(id);
-  }, [texts.length, interval]);
+  const { current, visible } = useRotatingText(texts, interval);
 
   return (
     <span
@@ -34,7 +21,7 @@ export function Title({ texts, interval = 2500, className = "" }: TitleProps) {
         .filter(Boolean)
         .join(" ")}
     >
-      {texts[index]}
+      {current}
     </span>
   );
 }
