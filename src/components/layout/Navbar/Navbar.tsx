@@ -78,11 +78,11 @@ export function Navbar({ links, logo, className }: NavbarProps) {
 
       {/* Mobile overlay */}
       <div
-        className={`md:hidden fixed inset-0 z-40 flex items-center justify-center bg-zinc-950 transition-all duration-300 ${
+        className={`md:hidden fixed inset-0 z-40 flex flex-col items-center justify-center pt-16 px-4 bg-zinc-950 transition-all duration-300 ${
           isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
-        <ul className="flex flex-col items-center gap-8">
+        <ul className="flex flex-col items-center gap-8 w-full">
           {links.map(({ label, href, icon: Icon }) => (
             <li key={href}>
               <Link
