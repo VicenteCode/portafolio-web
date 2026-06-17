@@ -1,6 +1,7 @@
-import { User, Briefcase, GraduationCap, Wrench, Code } from 'lucide-react'
+import { User, Briefcase, GraduationCap, Wrench, Code, Home } from 'lucide-react'
 
 export const NavLinks = [
+    { label: 'Start', icon: Home, href: '#'},
     { label: 'About Me', icon: User, href: '#about' },
     { label: 'Stack', icon: Code, href: '#stack'},
     { label: 'Experience', icon: Briefcase, href: '#experience'},
