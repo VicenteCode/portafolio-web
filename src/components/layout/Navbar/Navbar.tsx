@@ -78,8 +78,8 @@ export function Navbar({ links, logo, className }: NavbarProps) {
 
       {/* Mobile overlay */}
       <div
-        className={`md:hidden fixed inset-x-0 top-16 bottom-0 z-40 flex flex-col items-center justify-start pt-12 px-4 bg-zinc-950 transition-transform duration-300 ease-in-out ${
-          isOpen ? "translate-y-0 pointer-events-auto" : "-translate-y-full pointer-events-none"
+        className={`md:hidden fixed inset-x-0 top-16 bottom-0 z-40 flex flex-col items-center justify-start pt-12 px-4 bg-zinc-950 transition-transform duration-300 ease-out ${
+          isOpen ? "translate-x-0 pointer-events-auto" : "translate-x-full pointer-events-none"
         }`}
       >
         <ul className="flex flex-col items-center gap-8 w-full">
