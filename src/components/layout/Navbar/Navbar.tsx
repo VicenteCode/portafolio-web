@@ -3,6 +3,7 @@
 import Link from "next/link";
 import type { ComponentType, ReactNode } from "react";
 import { useNavbar } from "./useNavbar";
+import { useMobileMenu } from "./useMobileMenu";
 
 interface NavLink {
   label: string;
@@ -19,12 +20,13 @@ interface NavbarProps {
 export function Navbar({ links, logo, className }: NavbarProps) {
   const hrefs = links.map((l) => l.href);
   const { isScrolled, activeSection } = useNavbar(hrefs);
+  const { isOpen, toggle, close } = useMobileMenu();
 
   return (
     <header
       className={[
         "fixed top-0 inset-x-0 z-50 h-16 transition-[background-color,box-shadow] duration-200",
-        isScrolled
+        isScrolled || isOpen
           ? "bg-zinc-950/90 shadow-sm shadow-zinc-900/50 backdrop-blur-sm"
           : "bg-transparent",
         className ?? "",
@@ -35,7 +37,8 @@ export function Navbar({ links, logo, className }: NavbarProps) {
       <nav className="h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {logo && <div className="shrink-0">{logo}</div>}
 
-        <ul className="flex items-center gap-1 ms-auto" role="list">
+        {/* Desktop links */}
+        <ul className="hidden md:flex items-center gap-1 ms-auto" role="list">
           {links.map(({ label, href, icon: Icon }) => {
             const isActive = activeSection === href;
             return (
@@ -58,7 +61,42 @@ export function Navbar({ links, logo, className }: NavbarProps) {
             );
           })}
         </ul>
+
+        {/* Hamburger button */}
+        <button
+          type="button"
+          onClick={toggle}
+          aria-label={isOpen ? "Close menu" : "Open menu"}
+          aria-expanded={isOpen}
+          className="md:hidden ms-auto flex h-8 w-8 flex-col items-center justify-center gap-1.5"
+        >
+          <span className={`block h-0.5 w-6 bg-zinc-100 transition-all duration-300 ${isOpen ? "translate-y-2 rotate-45" : ""}`} />
+          <span className={`block h-0.5 w-6 bg-zinc-100 transition-all duration-300 ${isOpen ? "opacity-0" : ""}`} />
+          <span className={`block h-0.5 w-6 bg-zinc-100 transition-all duration-300 ${isOpen ? "-translate-y-2 -rotate-45" : ""}`} />
+        </button>
       </nav>
+
+      {/* Mobile overlay */}
+      <div
+        className={`md:hidden fixed inset-0 z-40 flex items-center justify-center bg-zinc-950 transition-all duration-300 ${
+          isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+      >
+        <ul className="flex flex-col items-center gap-8">
+          {links.map(({ label, href, icon: Icon }) => (
+            <li key={href}>
+              <Link
+                href={href}
+                onClick={close}
+                className="flex items-center gap-2 text-2xl font-medium text-zinc-200 transition-colors hover:text-zinc-100"
+              >
+                {Icon && <Icon className="w-6 h-6" />}
+                {label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </header>
   );
 }
