@@ -6,6 +6,7 @@ const variantMap = {
   ghost:    'bg-transparent',
   outlined: 'border border-border-subtle bg-transparent',
   filled:   'bg-surface-raised border-transparent',
+  glass:    'border border-white/10 bg-white/5 backdrop-blur-md shadow-lg shadow-black/20',
 } as const
 
 const paddingMap = {
