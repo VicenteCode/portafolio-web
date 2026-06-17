@@ -7,7 +7,7 @@ type UseRotatingTextReturn = {
   visible: boolean;
 };
 
-export function useRotatingText(texts: string[], interval = 2500): UseRotatingTextReturn {
+export function useRotatingText(texts: readonly string[], interval = 2500): UseRotatingTextReturn {
   const [index, setIndex] = useState(0);
   const [visible, setVisible] = useState(true);
   const textsRef = useRef(texts);

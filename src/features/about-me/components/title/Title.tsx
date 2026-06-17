@@ -3,7 +3,7 @@
 import { useRotatingText } from "@/features/about-me/hooks/useRotatingText";
 
 type TitleProps = {
-  texts: string[];
+  texts: readonly string[];
   interval?: number;
   className?: string;
 };
