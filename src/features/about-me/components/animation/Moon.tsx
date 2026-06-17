@@ -141,7 +141,7 @@ export function Moon() {
     <canvas
       ref={canvasRef}
       style={{ width: SIZE, height: SIZE }}
-      className="pointer-events-none"
+      className="pointer-events-none block border-0 outline-none"
     />
   );
 }
