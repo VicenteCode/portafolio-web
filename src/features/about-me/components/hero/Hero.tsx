@@ -19,7 +19,7 @@ export function Hero() {
           ring
           shadow="lg"
           imageSizes="(min-width: 1024px) 448px, 256px"
-          className="lg:!h-[28rem] lg:!w-[28rem]"
+          className="lg:h-112! lg:w-md!"
         />
         <div className="flex flex-1 items-center justify-center lg:pb-40">
           <Title texts={titles} interval={2500} />
