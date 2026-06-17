@@ -1,5 +1,6 @@
 import { Avatar } from "@/components/ui/avatar";
 import { Title } from "@/features/about-me/components/title";
+import { AboutCard } from "@/features/about-me/components/card";
 
 const titles = [
   "Hello, I'm Vicente Code.",
@@ -21,8 +22,9 @@ export function Hero() {
           imageSizes="(min-width: 1024px) 448px, 256px"
           className="lg:h-112! lg:w-md!"
         />
-        <div className="flex flex-1 items-center justify-center lg:pb-40">
+        <div className="flex flex-1 flex-col gap-6 lg:pb-40">
           <Title texts={titles} interval={2500} />
+          <AboutCard />
         </div>
       </div>
     </section>

@@ -5,7 +5,7 @@ const about = `I'm a Systems Engineer passionate about Full Stack development wi
 export function AboutCard() {
   return (
     <Card variant="ghost" padding="none">
-      <p className="text-zinc-300 text-base leading-relaxed">{about}</p>
+      <p className="text-zinc-300 text-base leading-relaxed text-justify text-pretty">{about}</p>
     </Card>
   );
 }
