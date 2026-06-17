@@ -28,6 +28,10 @@ const CX = SIZE / 2;
 const CY = SIZE / 2;
 const R  = SIZE / 2 - 16;
 
+// Waxing gibbous — 72% illuminated, light from the left
+const PHASE        = 0.72;
+const TERM_SEMI_X  = R * Math.abs(2 * PHASE - 1); // ellipse minor semi-axis of the terminator
+
 export function Moon() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -55,22 +59,22 @@ export function Moon() {
       ctx.fillStyle = glowGrad;
       ctx.fill();
 
-      // Moon base sphere
+      // Lit surface — radial gradient, light from upper-left
       const baseGrad = ctx.createRadialGradient(
         CX - R * 0.32, CY - R * 0.32, R * 0.08,
         CX, CY, R
       );
-      baseGrad.addColorStop(0,   "#deded0");
-      baseGrad.addColorStop(0.4, "#b8b8a4");
+      baseGrad.addColorStop(0,    "#deded0");
+      baseGrad.addColorStop(0.4,  "#b8b8a4");
       baseGrad.addColorStop(0.75, "#787868");
-      baseGrad.addColorStop(1,   "#2e2e28");
+      baseGrad.addColorStop(1,    "#2e2e28");
 
       ctx.beginPath();
       ctx.arc(CX, CY, R, 0, Math.PI * 2);
       ctx.fillStyle = baseGrad;
       ctx.fill();
 
-      // Clip to sphere for craters
+      // Craters — clipped to sphere
       ctx.save();
       ctx.beginPath();
       ctx.arc(CX, CY, R, 0, Math.PI * 2);
@@ -92,7 +96,6 @@ export function Moon() {
 
         if (cr < 2) continue;
 
-        // Crater floor
         const floorGrad = ctx.createRadialGradient(
           px + cr * 0.25, py + cr * 0.25, 0,
           px, py, cr
@@ -106,7 +109,6 @@ export function Moon() {
         ctx.fillStyle = floorGrad;
         ctx.fill();
 
-        // Crater rim highlight
         ctx.beginPath();
         ctx.arc(px - cr * 0.2, py - cr * 0.2, cr * 0.18, 0, Math.PI * 2);
         ctx.fillStyle = "rgba(255,255,235,0.35)";
@@ -115,19 +117,52 @@ export function Moon() {
 
       ctx.restore();
 
-      // Light source overlay
+      // Specular highlight
       const lightGrad = ctx.createRadialGradient(
         CX - R * 0.38, CY - R * 0.38, 0,
         CX, CY, R
       );
-      lightGrad.addColorStop(0,   "rgba(255,255,245,0.18)");
+      lightGrad.addColorStop(0,    "rgba(255,255,245,0.18)");
       lightGrad.addColorStop(0.45, "rgba(255,255,245,0)");
-      lightGrad.addColorStop(1,   "rgba(0,0,0,0)");
+      lightGrad.addColorStop(1,    "rgba(0,0,0,0)");
 
       ctx.beginPath();
       ctx.arc(CX, CY, R, 0, Math.PI * 2);
       ctx.fillStyle = lightGrad;
       ctx.fill();
+
+      // Dark side — clipped to sphere
+      // Path: right arc (top→right→bottom) + left half of terminator ellipse (bottom→left→top)
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(CX, CY, R, 0, Math.PI * 2);
+      ctx.clip();
+
+      ctx.beginPath();
+      ctx.arc(CX, CY, R, -Math.PI / 2, Math.PI / 2, false);
+      ctx.ellipse(CX, CY, TERM_SEMI_X, R, 0, Math.PI / 2, -Math.PI / 2, false);
+      ctx.closePath();
+      ctx.fillStyle = "rgba(3, 4, 14, 0.97)";
+      ctx.fill();
+
+      ctx.restore();
+
+      // Terminator soft blend — gradient rectangle straddling the terminator line
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(CX, CY, R, 0, Math.PI * 2);
+      ctx.clip();
+
+      const blendStart = CX + TERM_SEMI_X - R * 0.1;
+      const blendEnd   = CX + TERM_SEMI_X + R * 0.1;
+      const blendGrad  = ctx.createLinearGradient(blendStart, 0, blendEnd, 0);
+      blendGrad.addColorStop(0, "rgba(3, 4, 14, 0)");
+      blendGrad.addColorStop(1, "rgba(3, 4, 14, 0.97)");
+
+      ctx.fillStyle = blendGrad;
+      ctx.fillRect(blendStart, CY - R, blendEnd - blendStart, R * 2);
+
+      ctx.restore();
 
       rotation += 0.0025;
       frame = requestAnimationFrame(draw);
