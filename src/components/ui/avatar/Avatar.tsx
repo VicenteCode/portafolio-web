@@ -40,7 +40,7 @@ export function Avatar({
         container,
         shapeMap[shape],
         ring ? "ring-2 ring-zinc-700" : "",
-        shadow ? "shadow-[0_0_60px_20px_rgba(0,0,0,0.6)]" : "",
+        shadow ? "shadow-[0_0_60px_20px_rgba(255,255,255,0.18),0_0_120px_50px_rgba(255,255,255,0.08)]" : "",
         className,
       ]
         .filter(Boolean)
