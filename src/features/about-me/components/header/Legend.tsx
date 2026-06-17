@@ -8,7 +8,7 @@ type LegendProps = {
 };
 
 export function Legend({ className = "" }: LegendProps) {
-  const { current, visible } = useRotatingText(LEGEND_TEXTS, 2500, 700);
+  const { current, visible } = useRotatingText(LEGEND_TEXTS, 4500, 700);
 
   return (
     <p
