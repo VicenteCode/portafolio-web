@@ -50,15 +50,6 @@ export function Moon() {
     const draw = () => {
       ctx.clearRect(0, 0, SIZE, SIZE);
 
-      // Outer glow
-      const glowGrad = ctx.createRadialGradient(CX, CY, R * 0.85, CX, CY, R * 1.3);
-      glowGrad.addColorStop(0, "rgba(210,210,180,0.18)");
-      glowGrad.addColorStop(1, "rgba(210,210,180,0)");
-      ctx.beginPath();
-      ctx.arc(CX, CY, R * 1.3, 0, Math.PI * 2);
-      ctx.fillStyle = glowGrad;
-      ctx.fill();
-
       // Lit surface — light from upper-right (waning gibbous)
       const baseGrad = ctx.createRadialGradient(
         CX + R * 0.32, CY - R * 0.32, R * 0.08,
@@ -176,7 +167,7 @@ export function Moon() {
     <canvas
       ref={canvasRef}
       style={{ width: SIZE, height: SIZE }}
-      className="pointer-events-none block border-0 outline-none [filter:drop-shadow(0_0_8px_rgba(200,200,160,0.18))_drop-shadow(0_0_20px_rgba(180,180,130,0.07))]"
+      className="pointer-events-none block border-0 outline-none"
     />
   );
 }
