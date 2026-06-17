@@ -17,9 +17,9 @@ export function Hero() {
           imageSizes="(min-width: 1024px) 448px, 256px"
           className="lg:h-112! lg:w-md!"
         />
-        <div className="flex flex-1 flex-col lg:pb-40">
+        <div className="flex flex-1 flex-col gap-8 lg:pb-40">
           <Title texts={HERO_TITLES} interval={2500} />
-          <hr className="my-4 border-border-subtle w-16" />
+          <hr className="border-border-subtle w-16" />
           <AboutCard />
         </div>
       </div>
