@@ -1,5 +1,5 @@
 import { Layout } from "@/components/layout/Layout";
-import { NavigationBar } from "@/features/navegation/components/NavigationBar";
+import { NavigationBar } from "@/features/navigation/components/NavigationBar";
 
 export default function Page() {
   return (
