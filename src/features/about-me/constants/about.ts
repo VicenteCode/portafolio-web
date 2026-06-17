@@ -1,1 +1,21 @@
-export const ABOUT_DESCRIPTION = `I'm a Systems Engineer passionate about Full Stack development with a growing interest in software architecture. I'm motivated by designing well-structured, scalable, and maintainable systems, applying patterns like MVC and hexagonal architecture alongside SOLID principles and clean architecture. I enjoy understanding the underlying problem before writing code, and I strive for every technical decision to make sense for both the team and the business. I've worked on web and mobile projects from start to finish, collaborating directly with clients and agile teams, and integrating AI automation when it adds real value.`;
+type Segment = { text: string; highlight?: boolean };
+
+export const ABOUT_DESCRIPTION: Segment[] = [
+  { text: "I'm a " },
+  { text: "Systems Engineer", highlight: true },
+  { text: " and " },
+  { text: "Full Stack Developer", highlight: true },
+  { text: " working primarily in the " },
+  { text: "JavaScript ecosystem", highlight: true },
+  { text: " — building web applications with modern tools like " },
+  { text: "React, Next.js, Node.js, and TypeScript", highlight: true },
+  { text: ". I'm driven by the idea of writing code that is not just functional, but " },
+  { text: "well-structured, scalable, and maintainable", highlight: true },
+  { text: ". I'm actively preparing to grow into a " },
+  { text: "software architect", highlight: true },
+  { text: " role, deepening my knowledge of " },
+  { text: "design patterns, hexagonal and clean architecture, and SOLID principles", highlight: true },
+  { text: ". I believe every technical decision should make sense for both the team and the business — and I enjoy " },
+  { text: "understanding the problem deeply", highlight: true },
+  { text: " before writing a single line of code." },
+];
