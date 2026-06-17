@@ -23,7 +23,7 @@ const CRATERS: Crater[] = [
   { lat: -0.4, lon: 4.6,  radius: 14 },
 ];
 
-const SIZE = 320;
+const SIZE = 480;
 const CX = SIZE / 2;
 const CY = SIZE / 2;
 const R  = SIZE / 2 - 16;
