@@ -141,7 +141,7 @@ export function Moon() {
     <canvas
       ref={canvasRef}
       style={{ width: SIZE, height: SIZE }}
-      className="pointer-events-none block border-0 outline-none [filter:drop-shadow(0_0_18px_rgba(200,200,160,0.3))_drop-shadow(0_0_40px_rgba(180,180,130,0.12))]"
+      className="pointer-events-none block border-0 outline-none [filter:drop-shadow(0_0_8px_rgba(200,200,160,0.18))_drop-shadow(0_0_20px_rgba(180,180,130,0.07))]"
     />
   );
 }
