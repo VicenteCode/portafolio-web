@@ -2,6 +2,7 @@
 
 @theme {
   --font-comic: var(--font-bangers);
+  --font-montserrat: var(--font-montserrat);
 
   --color-surface:          var(--color-zinc-900);
   --color-surface-raised:   var(--color-zinc-800);

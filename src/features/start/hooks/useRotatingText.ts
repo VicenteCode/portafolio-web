@@ -7,7 +7,7 @@ type UseRotatingTextReturn = {
   visible: boolean;
 };
 
-export function useRotatingText(texts: readonly string[], interval = 2500): UseRotatingTextReturn {
+export function useRotatingText(texts: readonly string[], interval = 2500, transitionDuration = 300): UseRotatingTextReturn {
   const [index, setIndex] = useState(0);
   const [visible, setVisible] = useState(true);
   const textsRef = useRef(texts);
@@ -22,11 +22,11 @@ export function useRotatingText(texts: readonly string[], interval = 2500): UseR
       setTimeout(() => {
         setIndex((i) => (i + 1) % textsRef.current.length);
         setVisible(true);
-      }, 300);
+      }, transitionDuration);
     }, interval);
 
     return () => clearInterval(id);
-  }, [interval]);
+  }, [interval, transitionDuration]);
 
   return { current: textsRef.current[index], visible };
 }

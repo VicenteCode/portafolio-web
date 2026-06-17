@@ -1,1 +1,27 @@
-export const ABOUT_DESCRIPTION = `I'm a Systems Engineer passionate about Full Stack development with a growing interest in software architecture. I'm motivated by designing well-structured, scalable, and maintainable systems, applying patterns like MVC and hexagonal architecture alongside SOLID principles and clean architecture. I enjoy understanding the underlying problem before writing code, and I strive for every technical decision to make sense for both the team and the business. I've worked on web and mobile projects from start to finish, collaborating directly with clients and agile teams, and integrating AI automation when it adds real value.`;
+type Segment = { text: string; highlight?: boolean };
+
+export const ABOUT_DESCRIPTION: Segment[] = [
+  { text: "I'm a " },
+  { text: "Systems Engineer", highlight: true },
+  { text: " passionate about " },
+  { text: "Full Stack development", highlight: true },
+  { text: " with a growing interest in " },
+  { text: "software architecture", highlight: true },
+  { text: ". I'm driven to design systems that are " },
+  { text: "well-structured, scalable, and easy to maintain", highlight: true },
+  { text: " — applying patterns like " },
+  { text: "MVC and hexagonal architecture", highlight: true },
+  { text: " alongside " },
+  { text: "SOLID principles and clean architecture", highlight: true },
+  { text: ". I enjoy " },
+  { text: "understanding the problem deeply", highlight: true },
+  { text: " before writing a single line of code, ensuring every technical decision makes sense for both the " },
+  { text: "team and the business", highlight: true },
+  { text: ". I've worked on " },
+  { text: "web and mobile projects end-to-end", highlight: true },
+  { text: ", collaborating directly with clients and " },
+  { text: "agile teams", highlight: true },
+  { text: ", and integrating " },
+  { text: "AI-powered automation", highlight: true },
+  { text: " when it adds real value." },
+];
