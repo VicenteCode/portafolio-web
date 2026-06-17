@@ -26,6 +26,7 @@ type AvatarProps = {
   shape?: keyof typeof shapeMap;
   shadow?: keyof typeof shadowMap;
   ring?: boolean;
+  imageSizes?: string;
   className?: string;
 };
 
@@ -36,6 +37,7 @@ export function Avatar({
   shape = "circle",
   shadow,
   ring = false,
+  imageSizes,
   className = "",
 }: AvatarProps) {
   const { container, sizes } = sizeMap[size];
@@ -57,7 +59,7 @@ export function Avatar({
         src={src}
         alt={alt}
         fill
-        sizes={sizes}
+        sizes={imageSizes ?? sizes}
         className="object-cover"
         priority
       />
