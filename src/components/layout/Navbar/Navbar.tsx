@@ -25,7 +25,7 @@ export function Navbar({ links, logo, className }: NavbarProps) {
   return (
     <header
       className={[
-        "fixed top-0 inset-x-0 z-50 h-16 transition-[background-color,box-shadow] duration-200",
+        "fixed top-0 inset-x-0 z-50 h-16 border-b border-zinc-800 transition-[background-color,box-shadow] duration-200",
         isScrolled || isOpen
           ? "bg-zinc-950/90 shadow-sm shadow-zinc-900/50 backdrop-blur-sm"
           : "bg-transparent",
