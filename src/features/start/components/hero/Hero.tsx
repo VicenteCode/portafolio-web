@@ -1,5 +1,5 @@
 import { Avatar } from "@/components/ui/avatar";
-import { Title, SubTitle, Legend } from "@/features/about-me/components/header";
+import { Title, SubTitle, Legend } from "@/features/start/components/header";
 import { StarField } from "./StarField";
 
 export function Hero() {

@@ -1,6 +1,6 @@
 import { Layout } from "@/components/layout/Layout";
 import { NavigationBar } from "@/features/navigation/components/NavigationBar";
-import { Hero } from "@/features/about-me/components/hero";
+import { Hero } from "@/features/start/components/hero";
 
 export default function Page() {
   return (
