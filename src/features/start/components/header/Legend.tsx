@@ -1,7 +1,7 @@
 "use client";
 
 import { useRotatingText } from "@/features/start/hooks/useRotatingText";
-import { LEGEND_TEXTS } from "./legend.constants";
+import { LEGEND_TEXTS } from "../../constants/legend.constants";
 
 type LegendProps = {
   className?: string;
