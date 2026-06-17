@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    title: "VicenteCode",
+    title: "VicenteCode - Portfolio Website",
     description:
       "Software developer specialized in the JavaScript ecosystem — web apps, frontend architecture and modern tooling.",
     siteName: "VicenteCode",
