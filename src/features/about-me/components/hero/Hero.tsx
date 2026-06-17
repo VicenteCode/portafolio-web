@@ -10,7 +10,7 @@ const titles = [
 export function Hero() {
   return (
     <section id="about" className="min-h-screen flex items-center">
-      <div className="flex w-full items-center gap-12">
+      <div className="flex w-full items-center">
         <Avatar
           src="/avatar.png"
           alt="VicenteCode avatar"
@@ -19,7 +19,9 @@ export function Hero() {
           ring
           shadow="lg"
         />
-        <Title texts={titles} interval={2500} />
+        <div className="flex flex-1 items-center justify-center pb-40">
+          <Title texts={titles} interval={2500} />
+        </div>
       </div>
     </section>
   );
