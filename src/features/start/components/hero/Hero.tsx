@@ -4,7 +4,7 @@ import { StarField } from "./StarField";
 
 export function Hero() {
   return (
-    <section id="about" className="relative min-h-screen flex items-center overflow-hidden">
+    <section id="start" className="relative min-h-screen flex items-center overflow-hidden">
       <StarField />
       <div className="relative flex flex-col lg:flex-row w-full items-center gap-4 py-24 lg:py-0">
         <div className="flex flex-1 flex-col gap-6">
