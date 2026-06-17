@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { ABOUT_DESCRIPTION } from "@/features/start/constants/about";
+import { ABOUT_DESCRIPTION } from "@/features/about-me/constants/about";
 
 export function AboutCard() {
   return (
