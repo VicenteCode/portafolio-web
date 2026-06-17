@@ -28,9 +28,9 @@ const CX = SIZE / 2;
 const CY = SIZE / 2;
 const R  = SIZE / 2 - 16;
 
-// Waxing gibbous — 72% illuminated, light from the left
-const PHASE        = 0.72;
-const TERM_SEMI_X  = R * Math.abs(2 * PHASE - 1); // ellipse minor semi-axis of the terminator
+// Waning gibbous — 72% illuminated, light from the right, shadow on the left
+const PHASE       = 0.72;
+const TERM_SEMI_X = R * Math.abs(2 * PHASE - 1); // = R * 0.44
 
 export function Moon() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -59,9 +59,9 @@ export function Moon() {
       ctx.fillStyle = glowGrad;
       ctx.fill();
 
-      // Lit surface — radial gradient, light from upper-left
+      // Lit surface — light from upper-right (waning gibbous)
       const baseGrad = ctx.createRadialGradient(
-        CX - R * 0.32, CY - R * 0.32, R * 0.08,
+        CX + R * 0.32, CY - R * 0.32, R * 0.08,
         CX, CY, R
       );
       baseGrad.addColorStop(0,    "#deded0");
@@ -117,9 +117,9 @@ export function Moon() {
 
       ctx.restore();
 
-      // Specular highlight
+      // Specular highlight — upper-right
       const lightGrad = ctx.createRadialGradient(
-        CX - R * 0.38, CY - R * 0.38, 0,
+        CX + R * 0.38, CY - R * 0.38, 0,
         CX, CY, R
       );
       lightGrad.addColorStop(0,    "rgba(255,255,245,0.18)");
@@ -131,36 +131,36 @@ export function Moon() {
       ctx.fillStyle = lightGrad;
       ctx.fill();
 
-      // Dark side — clipped to sphere
-      // Path: right arc (top→right→bottom) + left half of terminator ellipse (bottom→left→top)
+      // Dark side — shadow on the LEFT (waning gibbous)
+      //
+      // Shadow path: left sphere arc (top → left → bottom, counterclockwise=true)
+      //            + left half of terminator ellipse (bottom → left-equator → top, clockwise)
+      //
+      // Gradient spans from CX (center, where shadow tapers at poles)
+      // to CX-R (left limb, fully dark) — mirrored from the waxing version.
+      // At the terminator (x = CX - TERM_SEMI_X) the shadow starts softly (~28% opacity)
+      // and builds quickly to full dark toward the left limb.
       ctx.save();
       ctx.beginPath();
       ctx.arc(CX, CY, R, 0, Math.PI * 2);
       ctx.clip();
 
       ctx.beginPath();
-      ctx.arc(CX, CY, R, -Math.PI / 2, Math.PI / 2, false);
+      ctx.arc(CX, CY, R, -Math.PI / 2, Math.PI / 2, true);
       ctx.ellipse(CX, CY, TERM_SEMI_X, R, 0, Math.PI / 2, -Math.PI / 2, false);
       ctx.closePath();
-      ctx.fillStyle = "rgba(3, 4, 14, 0.97)";
-      ctx.fill();
 
-      ctx.restore();
+      const t = TERM_SEMI_X / R;
+      const shadowGrad = ctx.createLinearGradient(CX, 0, CX - R, 0);
+      shadowGrad.addColorStop(0,                      "rgba(3, 4, 14, 0)");
+      shadowGrad.addColorStop(Math.max(0, t - 0.1),  "rgba(3, 4, 14, 0)");
+      shadowGrad.addColorStop(t,                      "rgba(3, 4, 14, 0.28)");
+      shadowGrad.addColorStop(Math.min(1, t + 0.14), "rgba(3, 4, 14, 0.88)");
+      shadowGrad.addColorStop(Math.min(1, t + 0.25), "rgba(3, 4, 14, 0.96)");
+      shadowGrad.addColorStop(1,                      "rgba(3, 4, 14, 0.97)");
 
-      // Terminator soft blend — gradient rectangle straddling the terminator line
-      ctx.save();
-      ctx.beginPath();
-      ctx.arc(CX, CY, R, 0, Math.PI * 2);
-      ctx.clip();
-
-      const blendStart = CX + TERM_SEMI_X - R * 0.1;
-      const blendEnd   = CX + TERM_SEMI_X + R * 0.1;
-      const blendGrad  = ctx.createLinearGradient(blendStart, 0, blendEnd, 0);
-      blendGrad.addColorStop(0, "rgba(3, 4, 14, 0)");
-      blendGrad.addColorStop(1, "rgba(3, 4, 14, 0.97)");
-
-      ctx.fillStyle = blendGrad;
-      ctx.fillRect(blendStart, CY - R, blendEnd - blendStart, R * 2);
+      ctx.fillStyle = shadowGrad;
+      ctx.fillRect(CX - R, CY - R, R, R * 2);
 
       ctx.restore();
 
