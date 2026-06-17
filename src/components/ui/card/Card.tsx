@@ -1,32 +1,59 @@
 import type { ReactNode } from 'react'
 
+const variantMap = {
+  default:  'border border-border bg-surface',
+  elevated: 'border border-border bg-surface shadow-lg shadow-surface-sunken/60',
+  ghost:    'bg-transparent',
+  outlined: 'border border-border-subtle bg-transparent',
+  filled:   'bg-surface-raised border-transparent',
+} as const
+
 const paddingMap = {
-  sm: 'p-3',
-  md: 'p-5',
-  lg: 'p-8',
+  none: 'p-0',
+  sm:   'p-3',
+  md:   'p-5',
+  lg:   'p-8',
+} as const
+
+const radiusMap = {
+  sm:   'rounded-lg',
+  md:   'rounded-xl',
+  lg:   'rounded-2xl',
+  full: 'rounded-3xl',
+} as const
+
+const hoverMap = {
+  default:  'transition-colors duration-200 hover:bg-surface-raised',
+  elevated: 'transition-shadow duration-200 hover:shadow-xl hover:shadow-surface-sunken/80',
+  ghost:    'transition-colors duration-200 hover:bg-surface',
+  outlined: 'transition-colors duration-200 hover:border-border-strong',
+  filled:   'transition-colors duration-200 hover:bg-surface-raised/70',
 } as const
 
 type CardProps = {
-  children: ReactNode
-  className?: string
-  padding?: keyof typeof paddingMap
+  children:   ReactNode
+  variant?:   keyof typeof variantMap
+  padding?:   keyof typeof paddingMap
+  radius?:    keyof typeof radiusMap
   hoverable?: boolean
+  className?: string
 }
 
 export function Card({
   children,
-  className = '',
-  padding = 'md',
+  variant   = 'default',
+  padding   = 'md',
+  radius    = 'md',
   hoverable = false,
+  className = '',
 }: CardProps) {
   return (
     <div
       className={[
-        'rounded-xl border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900',
+        variantMap[variant],
         paddingMap[padding],
-        hoverable
-          ? 'transition-shadow duration-200 hover:shadow-lg hover:shadow-zinc-200/60 dark:hover:shadow-zinc-900/60'
-          : '',
+        radiusMap[radius],
+        hoverable ? hoverMap[variant] : '',
         className,
       ]
         .filter(Boolean)
