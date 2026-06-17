@@ -32,7 +32,7 @@ export function Navbar({ links, logo, className }: NavbarProps) {
         .join(" ")
         .trim()}
     >
-      <nav className="h-full max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+      <nav className="h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {logo && <div className="shrink-0">{logo}</div>}
 
         <ul className="flex items-center gap-1 ms-auto" role="list">
