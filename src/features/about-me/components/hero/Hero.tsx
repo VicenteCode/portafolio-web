@@ -5,7 +5,7 @@ export function Hero() {
     <section id="about" className="min-h-screen flex items-center">
       <div className="flex w-full gap-12">
         <Avatar
-          src="/Avatar.png"
+          src="/avatar.png"
           alt="VicenteCode avatar"
           size="xl"
           shape="circle"
