@@ -20,7 +20,7 @@ export function Hero() {
           size="lg"
           shape="circle"
           ring
-          shadow="lg"
+          shadow="sm"
           imageSizes="(min-width: 1024px) 448px, 256px"
           className="lg:h-112! lg:w-md!"
         />
