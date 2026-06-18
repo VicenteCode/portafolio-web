@@ -1,16 +1,20 @@
+import type { IconType } from "react-icons";
+import { SiReact, SiTailwindcss, SiReactquery, SiAxios, SiReactrouter } from "react-icons/si";
+import { TbPackage } from "react-icons/tb";
+
 export type Libreria = {
   id: string;
   nombre: string;
-  icono: string;
+  icono: IconType;
 };
 
 export const LIBRERIAS: Libreria[] = [
-  { id: "react",        nombre: "React",         icono: "react"        },
-  { id: "react-native", nombre: "React Native",  icono: "react-native" },
-  { id: "tailwind",     nombre: "Tailwind",       icono: "tailwind"     },
-  { id: "nativewind",   nombre: "NativeWind",     icono: "nativewind"   },
-  { id: "tanstack",     nombre: "TanStack Query", icono: "tanstack"     },
-  { id: "axios",        nombre: "Axios",          icono: "axios"        },
-  { id: "reactrouter",  nombre: "React Router",   icono: "reactrouter"  },
-  { id: "zustand",      nombre: "Zustand",        icono: "zustand"      },
+  { id: "react",        nombre: "React",          icono: SiReact       },
+  { id: "react-native", nombre: "React Native",   icono: SiReact       },
+  { id: "tailwind",     nombre: "Tailwind",        icono: SiTailwindcss },
+  { id: "nativewind",   nombre: "NativeWind",      icono: SiTailwindcss },
+  { id: "tanstack",     nombre: "TanStack Query",  icono: SiReactquery  },
+  { id: "axios",        nombre: "Axios",           icono: SiAxios       },
+  { id: "reactrouter",  nombre: "React Router",    icono: SiReactrouter },
+  { id: "zustand",      nombre: "Zustand",         icono: TbPackage     },
 ];

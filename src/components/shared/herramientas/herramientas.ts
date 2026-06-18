@@ -1,24 +1,33 @@
+import type { IconType } from "react-icons";
+import {
+  SiGit, SiNodedotjs, SiGithub, SiDocker, SiPostman, SiSwagger,
+  SiAndroidstudio, SiAzuredevops, SiJira, SiFigma,
+  SiPostgresql, SiDiagramsdotnet, SiNotion, SiPrisma,
+} from "react-icons/si";
+import { LuTerminal } from "react-icons/lu";
+import { TbApi } from "react-icons/tb";
+
 export type Herramienta = {
   id: string;
   nombre: string;
-  icono: string;
+  icono: IconType;
 };
 
 export const HERRAMIENTAS: Herramienta[] = [
-  { id: "git",             nombre: "Git",                    icono: "git"             },
-  { id: "nodejs",          nombre: "Node.js",                icono: "nodejs"          },
-  { id: "github",          nombre: "GitHub",                 icono: "github"          },
-  { id: "docker",          nombre: "Docker",                 icono: "docker"          },
-  { id: "postman",         nombre: "Postman",                icono: "postman"         },
-  { id: "swagger",         nombre: "Swagger",                icono: "swagger"         },
-  { id: "androidstudio",   nombre: "Android Studio",         icono: "androidstudio"   },
-  { id: "azuredevops",     nombre: "Azure DevOps",           icono: "azuredevops"     },
-  { id: "jira",            nombre: "Jira",                   icono: "jira"            },
-  { id: "figma",           nombre: "Figma",                  icono: "figma"           },
-  { id: "cli",             nombre: "CLI",                    icono: "cli"             },
-  { id: "postgresql",      nombre: "PostgreSQL",             icono: "postgresql"      },
-  { id: "drawio",          nombre: "draw.io",                icono: "drawio"          },
-  { id: "notion",          nombre: "Notion",                 icono: "notion"          },
-  { id: "prisma",          nombre: "Prisma",                 icono: "prisma"          },
-  { id: "api",             nombre: "APIs",                   icono: "api"             },
+  { id: "git",           nombre: "Git",            icono: SiGit            },
+  { id: "nodejs",        nombre: "Node.js",         icono: SiNodedotjs      },
+  { id: "github",        nombre: "GitHub",          icono: SiGithub         },
+  { id: "docker",        nombre: "Docker",          icono: SiDocker         },
+  { id: "postman",       nombre: "Postman",         icono: SiPostman        },
+  { id: "swagger",       nombre: "Swagger",         icono: SiSwagger        },
+  { id: "androidstudio", nombre: "Android Studio",  icono: SiAndroidstudio  },
+  { id: "azuredevops",   nombre: "Azure DevOps",    icono: SiAzuredevops    },
+  { id: "jira",          nombre: "Jira",            icono: SiJira           },
+  { id: "figma",         nombre: "Figma",           icono: SiFigma          },
+  { id: "cli",           nombre: "CLI",             icono: LuTerminal       },
+  { id: "postgresql",    nombre: "PostgreSQL",      icono: SiPostgresql     },
+  { id: "drawio",        nombre: "draw.io",         icono: SiDiagramsdotnet },
+  { id: "notion",        nombre: "Notion",          icono: SiNotion         },
+  { id: "prisma",        nombre: "Prisma",          icono: SiPrisma         },
+  { id: "api",           nombre: "APIs",            icono: TbApi            },
 ];

@@ -1,11 +1,14 @@
+import type { IconType } from "react-icons";
+import { SiNextdotjs, SiExpress, SiExpo } from "react-icons/si";
+
 export type Framework = {
   id: string;
   nombre: string;
-  icono: string;
+  icono: IconType;
 };
 
 export const FRAMEWORKS: Framework[] = [
-  { id: "nextjs",   nombre: "Next.js", icono: "nextjs"  },
-  { id: "express",  nombre: "Express", icono: "express" },
-  { id: "expo",     nombre: "Expo",    icono: "expo"    },
+  { id: "nextjs",  nombre: "Next.js", icono: SiNextdotjs },
+  { id: "express", nombre: "Express", icono: SiExpress   },
+  { id: "expo",    nombre: "Expo",    icono: SiExpo      },
 ];
