@@ -1,11 +1,11 @@
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { Mail } from "lucide-react";
-import type { ComponentType } from "react";
+import type { ElementType } from "react";
 
 type SocialLink = {
   label: string;
   href: string;
-  icon: ComponentType<{ className?: string }>;
+  icon: ElementType;
 };
 
 export const SOCIAL_LINKS: SocialLink[] = [
