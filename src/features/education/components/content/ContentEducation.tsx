@@ -1,11 +1,19 @@
 import { SectionTitle } from "@/components/ui/section-title";
 import { StarField } from "@/components/ui/star-field";
+import { EducationCard } from "@/features/education/components/card";
 
 export function ContentEducation() {
   return (
     <section id="education" className="relative flex flex-col py-10 overflow-hidden">
       <StarField />
       <SectionTitle text="My Education" />
+      <div className="mt-16 flex flex-col gap-6">
+        <EducationCard
+          career="Computer Systems Engineering"
+          school="Universidad Jean Piaget"
+          period="2022 – 2025"
+        />
+      </div>
     </section>
   );
 }
