@@ -82,7 +82,7 @@ export function Navbar({ links, logo, className }: NavbarProps) {
           isOpen ? "translate-x-0 pointer-events-auto" : "translate-x-full pointer-events-none"
         }`}
       >
-        <ul className="flex flex-col items-center gap-4 w-full max-w-xs">
+        <ul className="relative z-10 flex flex-col items-center gap-4 w-full max-w-xs">
           {links.map(({ label, href, icon: Icon }) => (
             <li key={href} className="w-full">
               <Link
