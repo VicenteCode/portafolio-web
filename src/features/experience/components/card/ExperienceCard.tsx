@@ -18,7 +18,7 @@ export function ExperienceCard({ company, role, period, description }: Experienc
             <span>{period}</span>
           </div>
         </div>
-        <p className="text-sm text-zinc-300 leading-relaxed">{description}</p>
+        <p className="text-base text-zinc-200 leading-7">{description}</p>
       </div>
     </Card>
   );
