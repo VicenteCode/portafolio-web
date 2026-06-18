@@ -1,6 +1,6 @@
 import { Avatar } from "@/components/ui/avatar";
 import { Title, SubTitle, Legend } from "@/features/start/components/header";
-import { BtnLinks } from "@/features/about-me/components/Button";
+import { BtnLinks } from "@/features/start/components/Button";
 import { StarField } from "@/components/ui/star-field";
 
 export function Hero() {

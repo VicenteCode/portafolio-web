@@ -1,7 +1,7 @@
 import { SectionTitle } from "@/components/ui/section-title";
 import { AboutCard } from "@/features/about-me/components/card";
 import { Moon } from "@/features/about-me/components/animation";
-import { BtnLinks } from "@/features/about-me/components/Button";
+import { BtnLinks } from "@/features/start/components/Button";
 import { StarField } from "@/components/ui/star-field";
 
 export function ContentAboutMe() {

@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { SOCIAL_LINKS } from "@/features/about-me/constants/social";
+import { SOCIAL_LINKS } from "@/features/start/constants/social";
 
 export function BtnLinks() {
   return (
