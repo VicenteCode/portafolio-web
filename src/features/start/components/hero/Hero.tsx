@@ -13,7 +13,7 @@ export function Hero() {
           alt="VicenteCode avatar"
           size="md"
           shape="circle"
-          ring
+          ring={false}
           shadow="sm"
           imageSizes="(min-width: 1024px) 448px, 256px"
           className="sm:w-48 sm:h-48 lg:order-last lg:h-112! lg:w-md!"
