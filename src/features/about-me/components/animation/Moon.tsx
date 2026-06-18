@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 
 type Crater = { lat: number; lon: number; radius: number };
 type Mare   = { lat: number; lon: number; rx: number; ry: number; angle: number; opacity: number };
@@ -250,9 +251,15 @@ export function Moon() {
   }, []);
 
   return (
-    <canvas
-      ref={canvasRef}
-      className="pointer-events-none block border-0 outline-none w-60 h-60 sm:w-120 sm:h-120"
-    />
+    <motion.div
+      whileHover={{ scale: 1.1 }}
+      transition={{ type: "spring", stiffness: 180, damping: 18 }}
+      className="cursor-pointer"
+    >
+      <canvas
+        ref={canvasRef}
+        className="pointer-events-none block border-0 outline-none w-60 h-60 sm:w-120 sm:h-120"
+      />
+    </motion.div>
   );
 }
