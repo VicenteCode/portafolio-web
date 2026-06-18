@@ -1,0 +1,41 @@
+"use client";
+
+import { useState } from "react";
+import type { IconType } from "react-icons";
+import { StackCard } from "@/features/stack/components/card";
+
+const VISIBLE_LIMIT = 10;
+
+type Item = { id: string; nombre: string; icono: IconType };
+
+type StackGroupProps = {
+  label: string;
+  items: Item[];
+};
+
+export function StackGroup({ label, items }: StackGroupProps) {
+  const [expanded, setExpanded] = useState(false);
+  const hasMore = items.length > VISIBLE_LIMIT;
+  const visible = expanded ? items : items.slice(0, VISIBLE_LIMIT);
+
+  return (
+    <div className="flex flex-col gap-6">
+      <h3 className="text-zinc-400 text-sm font-semibold uppercase tracking-widest">
+        {label}
+      </h3>
+      <div className="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-8 gap-3 md:gap-5 lg:gap-6">
+        {visible.map((item) => (
+          <StackCard key={item.id} nombre={item.nombre} icono={item.icono} />
+        ))}
+      </div>
+      {hasMore && (
+        <button
+          onClick={() => setExpanded((prev) => !prev)}
+          className="self-start text-sm text-zinc-400 hover:text-white transition-colors duration-200 underline underline-offset-4"
+        >
+          {expanded ? "Ver menos" : `Ver más (${items.length - VISIBLE_LIMIT} más)`}
+        </button>
+      )}
+    </div>
+  );
+}
