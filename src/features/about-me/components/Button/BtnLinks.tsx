@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { SOCIAL_LINKS } from "@/features/about-me/constants/social";
 
-export function SocialLinks() {
+export function BtnLinks() {
   return (
     <div className="flex flex-wrap gap-3">
       {SOCIAL_LINKS.map(({ label, href, icon: Icon }) => (
