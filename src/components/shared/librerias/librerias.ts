@@ -10,7 +10,6 @@ export type Libreria = {
 
 export const LIBRERIAS: Libreria[] = [
   { id: "react",        nombre: "React",          icono: SiReact       },
-  { id: "react-native", nombre: "React Native",   icono: SiReact       },
   { id: "tailwind",     nombre: "Tailwind",        icono: SiTailwindcss },
   { id: "nativewind",   nombre: "NativeWind",      icono: SiTailwindcss },
   { id: "tanstack",     nombre: "TanStack Query",  icono: SiReactquery  },
