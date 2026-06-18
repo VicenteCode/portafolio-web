@@ -4,7 +4,7 @@ import { EducationCard } from "@/features/education/components/card";
 
 export function ContentEducation() {
   return (
-    <section id="education" className="relative flex flex-col py-10 pb-96 overflow-hidden">
+    <section id="education" className="relative flex flex-col py-10 overflow-hidden">
       <StarField />
       <SectionTitle text="My Education" />
       <div className="mt-16 flex flex-col sm:flex-row gap-4 w-full md:max-w-2xl">

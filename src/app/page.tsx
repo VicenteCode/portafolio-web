@@ -1,4 +1,5 @@
 import { Layout } from "@/components/layout/Layout";
+import { Footer } from "@/components/layout/Footer";
 import { ContentAboutMe } from "@/features/about-me/components/content";
 import { ContentStack } from "@/features/stack/components/content";
 import { ContentExperience } from "@/features/experience/components/content";
@@ -9,7 +10,7 @@ import { ContentEducation } from "@/features/education/components/content";
 
 export default function Page() {
   return (
-    <Layout navbar={<NavigationBar />}>
+    <Layout navbar={<NavigationBar />} footer={<Footer />}>
       <Hero />
       <ContentAboutMe />
       <ContentExperience />

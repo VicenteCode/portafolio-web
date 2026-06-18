@@ -14,7 +14,7 @@ export function ContentSkills() {
       <StarField />
       <SectionTitle text="My Skills" />
       <div className="relative mt-16 flex flex-col gap-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 [grid-auto-rows:1fr]">
           {visible.map((skill) => (
             <SkillCard key={skill} label={skill} />
           ))}
