@@ -10,8 +10,8 @@ export default function Page() {
     <Layout navbar={<NavigationBar />}>
       <Hero />
       <ContentAboutMe />
-      <ContentStack />
       <ContentExperience />
+      <ContentStack />
     </Layout>
   );
 }
