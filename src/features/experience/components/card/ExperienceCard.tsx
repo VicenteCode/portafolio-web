@@ -10,7 +10,7 @@ type ExperienceCardProps = {
 
 export function ExperienceCard({ company, role, period, modality, description }: ExperienceCardProps) {
   return (
-    <Card variant="glass" padding="lg" radius="lg">
+    <Card variant="glass" padding="lg" radius="lg" className="transition-transform duration-200 hover:scale-[1.02]">
       <div className="flex flex-col gap-4">
         <div className="flex flex-col gap-1">
           <h3 className="text-xl font-bold text-white">{company}</h3>
