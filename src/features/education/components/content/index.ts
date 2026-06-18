@@ -1,0 +1,1 @@
+export { ContentEducation } from "./ContentEducation";

@@ -252,7 +252,7 @@ export function Moon() {
   return (
     <canvas
       ref={canvasRef}
-      className="pointer-events-none block border-0 outline-none w-[240px] h-[240px] sm:w-[480px] sm:h-[480px]"
+      className="pointer-events-none block border-0 outline-none w-60 h-60 sm:w-120 sm:h-120"
     />
   );
 }

@@ -32,7 +32,7 @@ export function useNavbar(sections: string[]): UseNavbarReturn {
         const visible = entries.find((e) => e.isIntersecting);
         if (visible) setActiveSection(`#${visible.target.id}`);
       },
-      { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+      { rootMargin: "-30% 0px -30% 0px", threshold: 0 }
     );
 
     elements.forEach((el) => observer.observe(el));
