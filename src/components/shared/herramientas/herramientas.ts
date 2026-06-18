@@ -1,7 +1,7 @@
 import type { IconType } from "react-icons";
 import {
   SiGit, SiNodedotjs, SiGithub, SiDocker, SiPostman, SiSwagger,
-  SiAndroidstudio, SiAzuredevops, SiJira, SiFigma,
+  SiAndroidstudio, SiMicrosoftazure, SiJira, SiFigma,
   SiPostgresql, SiDiagramsdotnet, SiNotion, SiPrisma,
 } from "react-icons/si";
 import { LuTerminal } from "react-icons/lu";
@@ -21,7 +21,7 @@ export const HERRAMIENTAS: Herramienta[] = [
   { id: "postman",       nombre: "Postman",         icono: SiPostman        },
   { id: "swagger",       nombre: "Swagger",         icono: SiSwagger        },
   { id: "androidstudio", nombre: "Android Studio",  icono: SiAndroidstudio  },
-  { id: "azuredevops",   nombre: "Azure DevOps",    icono: SiAzuredevops    },
+  { id: "azuredevops",   nombre: "Azure DevOps",    icono: SiMicrosoftazure },
   { id: "jira",          nombre: "Jira",            icono: SiJira           },
   { id: "figma",         nombre: "Figma",           icono: SiFigma          },
   { id: "cli",           nombre: "CLI",             icono: LuTerminal       },
