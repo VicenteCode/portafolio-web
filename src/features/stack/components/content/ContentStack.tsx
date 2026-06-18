@@ -14,7 +14,7 @@ export function ContentStack() {
             <h3 className="text-zinc-400 text-sm font-semibold uppercase tracking-widest">
               {label}
             </h3>
-            <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3 md:gap-5 lg:gap-6">
+            <div className="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-8 gap-3 md:gap-5 lg:gap-6">
               {items.map((item) => (
                 <StackCard key={item.id} nombre={item.nombre} icono={item.icono} />
               ))}
