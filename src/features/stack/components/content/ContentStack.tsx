@@ -1,17 +1,7 @@
 import { SectionTitle } from "@/components/ui/section-title";
 import { StarField } from "@/components/ui/star-field";
 import { StackCard } from "@/features/stack/components/card";
-import { LENGUAJES } from "@/components/shared/lenguajes";
-import { FRAMEWORKS } from "@/components/shared/frameworks";
-import { LIBRERIAS } from "@/components/shared/librerias";
-import { HERRAMIENTAS } from "@/components/shared/herramientas";
-
-const GRUPOS = [
-  { label: "Lenguajes",   items: LENGUAJES   },
-  { label: "Frameworks",  items: FRAMEWORKS  },
-  { label: "Librerías",   items: LIBRERIAS   },
-  { label: "Herramientas",items: HERRAMIENTAS},
-];
+import { GRUPOS } from "@/features/stack/constants";
 
 export function ContentStack() {
   return (
