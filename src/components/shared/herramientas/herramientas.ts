@@ -2,7 +2,7 @@ import type { IconType } from "react-icons";
 import {
   SiGit, SiNodedotjs, SiGithub, SiDocker, SiPostman, SiSwagger,
   SiAndroidstudio, SiJira, SiFigma,
-  SiPostgresql, SiDiagramsdotnet, SiNotion, SiPrisma,
+  SiPostgresql, SiDiagramsdotnet, SiSlack, SiPrisma,
 } from "react-icons/si";
 import { LuTerminal } from "react-icons/lu";
 import { TbApi, TbBrandAzure } from "react-icons/tb";
@@ -27,7 +27,7 @@ export const HERRAMIENTAS: Herramienta[] = [
   { id: "cli",           nombre: "CLI",             icono: LuTerminal       },
   { id: "postgresql",    nombre: "PostgreSQL",      icono: SiPostgresql     },
   { id: "drawio",        nombre: "draw.io",         icono: SiDiagramsdotnet },
-  { id: "notion",        nombre: "Notion",          icono: SiNotion         },
+  { id: "slack",         nombre: "Slack",           icono: SiSlack          },
   { id: "prisma",        nombre: "Prisma",          icono: SiPrisma         },
   { id: "api",           nombre: "APIs",            icono: TbApi            },
 ];
