@@ -1,0 +1,1 @@
+export { GRUPOS } from "./grupos";
