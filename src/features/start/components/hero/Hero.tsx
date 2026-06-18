@@ -14,9 +14,9 @@ export function Hero() {
           size="md"
           shape="circle"
           ring={false}
-          shadow="sm"
+          shadow="lg"
           imageSizes="(min-width: 1024px) 448px, 256px"
-          className="sm:w-48 sm:h-48 lg:order-last lg:h-112! lg:w-md!"
+          className="sm:w-48 sm:h-48 lg:order-last lg:h-112! lg:w-md! [filter:drop-shadow(0_0_40px_rgba(0,0,0,0.8))_drop-shadow(0_0_80px_rgba(239,68,68,0.15))]"
         />
         <div className="flex flex-1 flex-col gap-8 items-center text-center lg:items-start lg:text-left">
           <Title />
