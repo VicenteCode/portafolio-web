@@ -21,15 +21,14 @@ const CRATERS: Crater[] = [
   { lat: -0.4, lon: 4.6,  radius: 14 },
 ];
 
-// Major lunar mare projected at approximate real lat/lon positions
 const MARE: Mare[] = [
-  { lat:  0.59, lon: -0.28, rx: 0.28, ry: 0.22, angle:  0.3, opacity: 0.46 }, // Mare Imbrium
-  { lat:  0.45, lon:  0.30, rx: 0.18, ry: 0.14, angle: -0.2, opacity: 0.40 }, // Mare Serenitatis
-  { lat:  0.09, lon:  0.44, rx: 0.20, ry: 0.15, angle:  0.1, opacity: 0.38 }, // Mare Tranquillitatis
-  { lat:  0.17, lon: -0.79, rx: 0.35, ry: 0.28, angle:  0.5, opacity: 0.43 }, // Oceanus Procellarum
-  { lat:  0.29, lon:  1.01, rx: 0.11, ry: 0.08, angle:  0.0, opacity: 0.35 }, // Mare Crisium
-  { lat: -0.26, lon:  0.61, rx: 0.13, ry: 0.09, angle: -0.3, opacity: 0.30 }, // Mare Nectaris
-  { lat: -0.42, lon: -0.70, rx: 0.14, ry: 0.10, angle:  0.2, opacity: 0.32 }, // Mare Humorum
+  { lat:  0.59, lon: -0.28, rx: 0.28, ry: 0.22, angle:  0.3, opacity: 0.46 },
+  { lat:  0.45, lon:  0.30, rx: 0.18, ry: 0.14, angle: -0.2, opacity: 0.40 },
+  { lat:  0.09, lon:  0.44, rx: 0.20, ry: 0.15, angle:  0.1, opacity: 0.38 },
+  { lat:  0.17, lon: -0.79, rx: 0.35, ry: 0.28, angle:  0.5, opacity: 0.43 },
+  { lat:  0.29, lon:  1.01, rx: 0.11, ry: 0.08, angle:  0.0, opacity: 0.35 },
+  { lat: -0.26, lon:  0.61, rx: 0.13, ry: 0.09, angle: -0.3, opacity: 0.30 },
+  { lat: -0.42, lon: -0.70, rx: 0.14, ry: 0.10, angle:  0.2, opacity: 0.32 },
 ];
 
 const SIZE = 480;
@@ -40,7 +39,6 @@ const R    = SIZE / 2 - 16;
 const PHASE       = 0.72;
 const TERM_SEMI_X = R * Math.abs(2 * PHASE - 1);
 
-// Value noise helpers — used once at mount to build the surface texture
 const _hash = (x: number, y: number) => {
   const s = Math.sin(x * 127.1 + y * 311.7) * 43758.5453;
   return s - Math.floor(s);
@@ -59,6 +57,7 @@ const _noise = (x: number, y: number) => {
 
 export function Moon() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const mouseRef  = useRef({ nx: 0, hovering: false });
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -69,7 +68,6 @@ export function Moon() {
     canvas.width  = SIZE;
     canvas.height = SIZE;
 
-    // Build surface noise texture once (96×96 → stretched to sphere diameter)
     const NTEX = 96;
     const noiseCanvas = document.createElement("canvas");
     noiseCanvas.width  = NTEX;
@@ -81,11 +79,10 @@ export function Moon() {
       for (let nx = 0; nx < NTEX; nx++) {
         const sx = nx / NTEX;
         const sy = ny / NTEX;
-        // Three-octave fBm for varied scale detail
         const n = _noise(sx * 4,  sy * 4)  * 0.50
                 + _noise(sx * 9,  sy * 9)  * 0.32
                 + _noise(sx * 20, sy * 20) * 0.18;
-        const v = Math.round((n - 0.5) * 90); // ±45 centred at 0
+        const v = Math.round((n - 0.5) * 90);
         const i = (ny * NTEX + nx) * 4;
         ndata.data[i]     = 128 + v;
         ndata.data[i + 1] = 128 + v;
@@ -95,13 +92,21 @@ export function Moon() {
     }
     noiseCtx.putImageData(ndata, 0, 0);
 
-    let rotation = 0;
+    let baseRotation = 0;
+    let mouseOffset  = 0;
     let frame: number;
+    let running = false;
 
     const draw = () => {
+      baseRotation += 0.0025;
+
+      const target = mouseRef.current.hovering ? mouseRef.current.nx * 0.6 : 0;
+      mouseOffset += (target - mouseOffset) * 0.06;
+
+      const rotation = baseRotation + mouseOffset;
+
       ctx.clearRect(0, 0, SIZE, SIZE);
 
-      // Lit surface — light from upper-right (waning gibbous)
       const baseGrad = ctx.createRadialGradient(
         CX + R * 0.32, CY - R * 0.32, R * 0.08,
         CX, CY, R,
@@ -116,16 +121,14 @@ export function Moon() {
       ctx.fillStyle = baseGrad;
       ctx.fill();
 
-      // Everything below is clipped to the sphere
       ctx.save();
       ctx.beginPath();
       ctx.arc(CX, CY, R, 0, Math.PI * 2);
       ctx.clip();
 
-      // Surface noise — soft-light blend gives natural luminance variation
       ctx.save();
       ctx.translate(CX, CY);
-      ctx.rotate(rotation * 0.4); // slow drift to follow sphere rotation
+      ctx.rotate(rotation * 0.4);
       ctx.translate(-CX, -CY);
       ctx.globalCompositeOperation = "soft-light";
       ctx.globalAlpha = 0.55;
@@ -134,7 +137,6 @@ export function Moon() {
       ctx.globalAlpha = 1;
       ctx.restore();
 
-      // Mare — dark elliptical regions projected onto the rotating sphere
       for (const mare of MARE) {
         const lon    = mare.lon + rotation;
         const cosLat = Math.cos(mare.lat);
@@ -165,7 +167,6 @@ export function Moon() {
         ctx.fill();
       }
 
-      // Craters
       for (const crater of CRATERS) {
         const lon    = crater.lon + rotation;
         const cosLat = Math.cos(crater.lat);
@@ -203,7 +204,6 @@ export function Moon() {
 
       ctx.restore();
 
-      // Specular highlight — upper-right
       const lightGrad = ctx.createRadialGradient(
         CX + R * 0.38, CY - R * 0.38, 0,
         CX, CY, R,
@@ -217,7 +217,6 @@ export function Moon() {
       ctx.fillStyle = lightGrad;
       ctx.fill();
 
-      // Dark side — shadow on the left (waning gibbous)
       ctx.save();
       ctx.beginPath();
       ctx.arc(CX, CY, R, 0, Math.PI * 2);
@@ -242,12 +241,27 @@ export function Moon() {
 
       ctx.restore();
 
-      rotation += 0.0025;
       frame = requestAnimationFrame(draw);
     };
 
-    draw();
-    return () => cancelAnimationFrame(frame);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !running) {
+          running = true;
+          draw();
+        } else if (!entry.isIntersecting && running) {
+          running = false;
+          cancelAnimationFrame(frame);
+        }
+      },
+      { threshold: 0.1 },
+    );
+    observer.observe(canvas);
+
+    return () => {
+      cancelAnimationFrame(frame);
+      observer.disconnect();
+    };
   }, []);
 
   return (
@@ -255,6 +269,14 @@ export function Moon() {
       whileHover={{ scale: 1.1 }}
       transition={{ type: "spring", stiffness: 180, damping: 18 }}
       className="cursor-pointer"
+      onMouseMove={(e) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        mouseRef.current = {
+          nx: ((e.clientX - rect.left) / rect.width) * 2 - 1,
+          hovering: true,
+        };
+      }}
+      onMouseLeave={() => { mouseRef.current.hovering = false; }}
     >
       <canvas
         ref={canvasRef}
