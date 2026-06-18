@@ -1,7 +1,7 @@
 import { SectionTitle } from "@/components/ui/section-title";
 import { AboutCard } from "@/features/about-me/components/card";
-import { Moon } from "@/features/about-me/components/animation";
 import { StarField } from "@/components/ui/star-field";
+import { MoonClient } from "@/features/about-me/components/animation/MoonClient";
 
 export function ContentAboutMe() {
   return (
@@ -10,7 +10,7 @@ export function ContentAboutMe() {
       <SectionTitle text="About Me" />
       <div className="mt-16 flex flex-col lg:flex-row items-center gap-24">
         <AboutCard />
-        <Moon />
+        <MoonClient />
       </div>
     </section>
   );
