@@ -38,7 +38,7 @@ export function Navbar({ links, logo, className }: NavbarProps) {
         {logo && <div className="shrink-0">{logo}</div>}
 
         {/* Desktop links */}
-        <ul className="hidden md:flex items-center gap-1 ms-auto" role="list">
+        <ul className="hidden lg:flex items-center gap-1 ms-auto" role="list">
           {links.map(({ label, href, icon: Icon }) => {
             const isActive = activeSection === href;
             return (
@@ -68,7 +68,7 @@ export function Navbar({ links, logo, className }: NavbarProps) {
           onClick={toggle}
           aria-label={isOpen ? "Close menu" : "Open menu"}
           aria-expanded={isOpen}
-          className="md:hidden ms-auto relative z-50 flex h-8 w-8 flex-col items-center justify-center gap-1.5"
+          className="lg:hidden ms-auto relative z-50 flex h-8 w-8 flex-col items-center justify-center gap-1.5"
         >
           <span className={`block h-0.5 w-6 bg-zinc-100 transition-all duration-300 ${isOpen ? "translate-y-2 rotate-45" : ""}`} />
           <span className={`block h-0.5 w-6 bg-zinc-100 transition-all duration-300 ${isOpen ? "opacity-0" : ""}`} />
@@ -78,19 +78,19 @@ export function Navbar({ links, logo, className }: NavbarProps) {
 
       {/* Mobile overlay */}
       <div
-        className={`md:hidden fixed inset-x-0 top-16 bottom-0 z-40 flex flex-col items-center justify-start pt-12 px-4 bg-zinc-950 transition-transform duration-300 ease-out ${
+        className={`lg:hidden fixed inset-x-0 top-16 bottom-0 z-[49] flex flex-col items-center justify-start pt-12 px-4 bg-zinc-950 backdrop-blur-xl border-t border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.8)] transition-transform duration-300 ease-out ${
           isOpen ? "translate-x-0 pointer-events-auto" : "translate-x-full pointer-events-none"
         }`}
       >
-        <ul className="flex flex-col items-center gap-8 w-full">
+        <ul className="relative z-10 flex flex-col items-center gap-4 w-full max-w-xs">
           {links.map(({ label, href, icon: Icon }) => (
-            <li key={href}>
+            <li key={href} className="w-full">
               <Link
                 href={href}
                 onClick={close}
-                className="flex items-center gap-2 text-2xl font-medium text-zinc-200 transition-colors hover:text-zinc-100"
+                className="flex items-center gap-3 w-full px-6 py-3 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm text-lg font-medium text-zinc-200 transition-colors hover:text-white hover:bg-white/10"
               >
-                {Icon && <Icon className="w-6 h-6" />}
+                {Icon && <Icon className="w-5 h-5 shrink-0" />}
                 {label}
               </Link>
             </li>

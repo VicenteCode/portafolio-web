@@ -25,7 +25,7 @@ export function Footer({
         .filter(Boolean)
         .join(' ')}
     >
-      <div className="mx-auto flex w-full max-w-screen-xl flex-col items-center gap-4 px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-4 px-4 sm:px-6 lg:px-8">
         <span className="text-sm text-zinc-500 dark:text-zinc-400">
           © {year} {name}
         </span>

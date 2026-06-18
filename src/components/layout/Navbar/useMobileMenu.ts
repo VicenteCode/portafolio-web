@@ -24,8 +24,12 @@ export function useMobileMenu(): UseMobileMenuReturn {
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
+    isOpen
+      ? document.body.classList.add("menu-open")
+      : document.body.classList.remove("menu-open");
     return () => {
       document.body.style.overflow = "";
+      document.body.classList.remove("menu-open");
     };
   }, [isOpen]);
 
