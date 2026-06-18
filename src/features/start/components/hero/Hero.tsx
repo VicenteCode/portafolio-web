@@ -1,5 +1,6 @@
 import { Avatar } from "@/components/ui/avatar";
 import { Title, SubTitle, Legend } from "@/features/start/components/header";
+import { BtnLinks } from "@/features/about-me/components/Button";
 import { StarField } from "@/components/ui/star-field";
 
 export function Hero() {
@@ -13,6 +14,7 @@ export function Hero() {
             <SubTitle />
             <Legend />
           </div>
+          <BtnLinks />
         </div>
         <Avatar
           src="/avatar.png"
