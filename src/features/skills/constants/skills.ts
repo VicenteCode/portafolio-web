@@ -10,4 +10,5 @@ export const SKILLS = [
   "Requirements analysis",
   "Development environment management",
   "Build generation and signing for Google Play distribution (APK / AAB)",
+  "Frontend architecture with atomic design and container-presentational pattern",
 ] as const;
