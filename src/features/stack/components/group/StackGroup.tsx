@@ -1,10 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import type { IconType } from "react-icons";
 import { StackCard } from "@/features/stack/components/card";
-
-const VISIBLE_LIMIT = 16;
+import { useStackGroup } from "@/features/stack/hooks/useStackGroup";
 
 type Item = { id: string; nombre: string; icono: IconType };
 
@@ -14,9 +12,7 @@ type StackGroupProps = {
 };
 
 export function StackGroup({ label, items }: StackGroupProps) {
-  const [expanded, setExpanded] = useState(false);
-  const hasMore = items.length > VISIBLE_LIMIT;
-  const visible = expanded ? items : items.slice(0, VISIBLE_LIMIT);
+  const { visible, hasMore, expanded, hidden, toggle } = useStackGroup(items);
 
   return (
     <div className="flex flex-col gap-6">
@@ -30,10 +26,10 @@ export function StackGroup({ label, items }: StackGroupProps) {
       </div>
       {hasMore && (
         <button
-          onClick={() => setExpanded((prev) => !prev)}
+          onClick={toggle}
           className="self-start text-sm text-zinc-400 hover:text-white transition-colors duration-200 underline underline-offset-4"
         >
-          {expanded ? "Ver menos" : `Ver más (${items.length - VISIBLE_LIMIT} más)`}
+          {expanded ? "Ver menos" : `Ver más (${hidden} más)`}
         </button>
       )}
     </div>
