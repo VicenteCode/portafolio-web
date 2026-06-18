@@ -7,7 +7,7 @@ export function ContentEducation() {
     <section id="education" className="relative flex flex-col py-10 overflow-hidden">
       <StarField />
       <SectionTitle text="My Education" />
-      <div className="mt-16 flex flex-col gap-6">
+      <div className="mt-16 flex flex-col gap-6 max-w-xl">
         <EducationCard
           career="Computer Systems Engineering"
           school="Universidad Jean Piaget"
