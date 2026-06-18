@@ -1,4 +1,5 @@
 import { SectionTitle } from "@/components/ui/section-title";
+import { StarField } from "@/components/ui/star-field";
 import { StackCard } from "@/features/stack/components/card";
 import { LENGUAJES } from "@/components/shared/lenguajes";
 import { FRAMEWORKS } from "@/components/shared/frameworks";
@@ -15,6 +16,7 @@ const GRUPOS = [
 export function ContentStack() {
   return (
     <section id="stack" className="relative flex flex-col py-10 overflow-hidden">
+      <StarField />
       <SectionTitle text="My Stack" />
       <div className="mt-16 flex flex-col gap-12">
         {GRUPOS.map(({ label, items }) => (
