@@ -92,6 +92,18 @@ export function Moon() {
     }
     noiseCtx.putImageData(ndata, 0, 0);
 
+    const satellite    = { angle: 0.8,  speed:  0.0012, r: R + 80 };
+    const satelliteRx  = { angle: 3.8,  speed: -0.0016, r: R + 68 };
+
+    const symbols = [
+      { text: "</>", angle: 0.0,  speed:  0.0030, r: R + 34 },
+      { text: "{}",  angle: 1.2,  speed: -0.0022, r: R + 50 },
+      { text: "=>",  angle: 2.5,  speed:  0.0026, r: R + 38 },
+      { text: "::",  angle: 4.0,  speed: -0.0018, r: R + 28 },
+      { text: "[]",  angle: 5.2,  speed:  0.0020, r: R + 46 },
+      { text: "fn",  angle: 3.3,  speed:  0.0034, r: R + 32 },
+    ];
+
     let baseRotation = 0;
     let mouseOffset  = 0;
     let frame: number;
@@ -240,6 +252,56 @@ export function Moon() {
       ctx.fillRect(CX - R, CY - R, R, R * 2);
 
       ctx.restore();
+
+      ctx.font = "bold 15px monospace";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      for (const sym of symbols) {
+        sym.angle += sym.speed;
+        const sx = CX + Math.cos(sym.angle) * sym.r;
+        const sy = CY + Math.sin(sym.angle) * sym.r;
+        ctx.globalAlpha = 0.18;
+        ctx.fillStyle = "#ffffff";
+        ctx.fillText(sym.text, sx + 1, sy + 1);
+        ctx.globalAlpha = 0.75;
+        ctx.fillStyle = "#e4e4e7";
+        ctx.fillText(sym.text, sx, sy);
+      }
+      ctx.globalAlpha = 1;
+
+      satellite.angle += satellite.speed;
+      const sx = CX + Math.cos(satellite.angle) * satellite.r;
+      const sy = CY + Math.sin(satellite.angle) * satellite.r;
+      const hex = 11;
+      ctx.beginPath();
+      for (let i = 0; i < 6; i++) {
+        const a = (Math.PI / 3) * i - Math.PI / 6;
+        const hx = sx + hex * Math.cos(a);
+        const hy = sy + hex * Math.sin(a);
+        if (i === 0) ctx.moveTo(hx, hy);
+        else ctx.lineTo(hx, hy);
+      }
+      ctx.closePath();
+      ctx.fillStyle = "#5FA04E";
+      ctx.fill();
+      ctx.font = "bold 10px monospace";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillStyle = "#ffffff";
+      ctx.fillText("N", sx, sy + 0.5);
+
+      satelliteRx.angle += satelliteRx.speed;
+      const rx = CX + Math.cos(satelliteRx.angle) * satelliteRx.r;
+      const ry = CY + Math.sin(satelliteRx.angle) * satelliteRx.r;
+      ctx.beginPath();
+      ctx.arc(rx, ry, 11, 0, Math.PI * 2);
+      ctx.fillStyle = "#61DAFB";
+      ctx.fill();
+      ctx.font = "bold 10px monospace";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillStyle = "#0a0a0a";
+      ctx.fillText("R", rx, ry + 0.5);
 
       frame = requestAnimationFrame(draw);
     };
