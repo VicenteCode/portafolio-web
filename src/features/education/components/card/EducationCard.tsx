@@ -9,7 +9,7 @@ type EducationCardProps = {
 export function EducationCard({ career, school, period }: EducationCardProps) {
   return (
     <Card variant="glass" padding="none" radius="md" className="transition-transform duration-200 hover:scale-[1.02] px-4 py-2 flex-1">
-      <div className="flex flex-col gap-0.5">
+      <div className="flex flex-col gap-0.5 items-center text-center">
         <span className="text-sm font-semibold text-white">{career}</span>
         <div className="flex items-center gap-4 text-xs text-zinc-400">
           <span>{school}</span>
