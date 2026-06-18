@@ -10,7 +10,7 @@ export function ContentSkills() {
   const { visible, hasMore, expanded, hidden, toggle } = useSkills(SKILLS);
 
   return (
-    <section id="skills" className="relative flex flex-col py-10 overflow-hidden">
+    <section id="skills" className="relative flex flex-col py-10 pb-32 overflow-hidden">
       <StarField />
       <SectionTitle text="My Skills" />
       <div className="relative mt-16 flex flex-col gap-6">
