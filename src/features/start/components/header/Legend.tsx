@@ -13,7 +13,7 @@ export function Legend({ className = "" }: LegendProps) {
   return (
     <p
       className={[
-        "font-montserrat text-base md:text-lg text-muted-foreground transition-all duration-700",
+        "font-montserrat text-sm md:text-base text-zinc-400 transition-all duration-700",
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2",
         className,
       ]

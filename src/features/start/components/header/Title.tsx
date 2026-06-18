@@ -6,7 +6,7 @@ export function Title({ className = "" }: TitleProps) {
   return (
     <h1
       className={[
-        "font-comic text-5xl md:text-7xl leading-tight tracking-wide",
+        "font-comic text-5xl md:text-7xl leading-tight tracking-wide text-white",
         className,
       ]
         .filter(Boolean)
