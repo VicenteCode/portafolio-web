@@ -82,15 +82,15 @@ export function Navbar({ links, logo, className }: NavbarProps) {
           isOpen ? "translate-x-0 pointer-events-auto" : "translate-x-full pointer-events-none"
         }`}
       >
-        <ul className="flex flex-col items-center gap-8 w-full">
+        <ul className="flex flex-col items-center gap-4 w-full max-w-xs">
           {links.map(({ label, href, icon: Icon }) => (
-            <li key={href}>
+            <li key={href} className="w-full">
               <Link
                 href={href}
                 onClick={close}
-                className="flex items-center gap-2 text-2xl font-medium text-zinc-200 transition-colors hover:text-zinc-100"
+                className="flex items-center gap-3 w-full px-6 py-3 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm text-lg font-medium text-zinc-200 transition-colors hover:text-white hover:bg-white/10"
               >
-                {Icon && <Icon className="w-6 h-6" />}
+                {Icon && <Icon className="w-5 h-5 shrink-0" />}
                 {label}
               </Link>
             </li>
