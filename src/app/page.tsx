@@ -7,16 +7,17 @@ import { NavigationBar } from "@/features/navigation/components/NavigationBar";
 import { Hero } from "@/features/start/components/hero";
 import { ContentSkills } from "@/features/skills/components/content/ContentSkills";
 import { ContentEducation } from "@/features/education/components/content";
+import { RevealOnScroll } from "@/components/ui/reveal-on-scroll";
 
 export default function Page() {
   return (
     <Layout navbar={<NavigationBar />} footer={<Footer />}>
       <Hero />
-      <ContentAboutMe />
-      <ContentExperience />
-      <ContentStack />
-      <ContentSkills />
-      <ContentEducation />
+      <RevealOnScroll><ContentAboutMe /></RevealOnScroll>
+      <RevealOnScroll><ContentExperience /></RevealOnScroll>
+      <RevealOnScroll><ContentStack /></RevealOnScroll>
+      <RevealOnScroll><ContentSkills /></RevealOnScroll>
+      <RevealOnScroll><ContentEducation /></RevealOnScroll>
     </Layout>
   );
 }
