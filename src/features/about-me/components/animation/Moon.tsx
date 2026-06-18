@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { SIZE } from "./moon.constants";
 import { buildNoiseTexture, drawMoon } from "./drawMoon";
 import { createSymbols, drawSymbols } from "./drawSymbols";
+import { createBrandState, drawBrand } from "./drawBrand";
 
 export function Moon() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -21,6 +22,7 @@ export function Moon() {
 
     const noiseCanvas = buildNoiseTexture();
     const symbols     = createSymbols();
+    const brandState  = createBrandState();
 
     let baseRotation = 0;
     let mouseOffset  = 0;
@@ -35,6 +37,7 @@ export function Moon() {
       ctx.clearRect(0, 0, SIZE, SIZE);
       drawMoon(ctx, baseRotation + mouseOffset, noiseCanvas);
       drawSymbols(ctx, symbols);
+      drawBrand(ctx, brandState);
 
       frame = requestAnimationFrame(draw);
     };
