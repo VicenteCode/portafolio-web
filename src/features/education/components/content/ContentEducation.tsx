@@ -13,6 +13,11 @@ export function ContentEducation() {
           school="Universidad Jean Piaget"
           period="2022 – 2025"
         />
+        <EducationCard
+          career="Computer Technician"
+          school="Conalet Siglo XXI"
+          period="2019 – 2022"
+        />
       </div>
     </section>
   );
