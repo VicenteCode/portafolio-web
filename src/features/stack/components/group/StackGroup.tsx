@@ -4,7 +4,7 @@ import { useState } from "react";
 import type { IconType } from "react-icons";
 import { StackCard } from "@/features/stack/components/card";
 
-const VISIBLE_LIMIT = 10;
+const VISIBLE_LIMIT = 16;
 
 type Item = { id: string; nombre: string; icono: IconType };
 
