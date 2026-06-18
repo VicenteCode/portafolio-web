@@ -8,7 +8,7 @@ export function ContentExperience() {
       <StarField />
       <SectionTitle text="My Experience" />
       <div className="relative mt-16">
-        <div className="absolute left-[7px] top-0 bottom-0 w-px bg-white/10" />
+        <div className="absolute left-1.75 top-0 bottom-0 w-px bg-white/10" />
         <div className="flex flex-col gap-10">
           <div className="relative pl-8">
             <span className="absolute left-0 top-8 w-3.5 h-3.5 rounded-full bg-indigo-400 ring-4 ring-indigo-400/20" />

@@ -17,7 +17,7 @@ export function ExperienceCard({ company, role, period, modality, description }:
           <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-6 text-sm text-zinc-400">
             <span>Role: {role}</span>
             <span>{period}</span>
-            <span>{modality}</span>
+            <span>Modality: {modality}</span>
           </div>
         </div>
         <p className="text-base text-zinc-200 leading-7">{description}</p>
