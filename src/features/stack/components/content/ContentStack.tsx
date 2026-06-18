@@ -1,9 +1,9 @@
-import { Title } from "@/features/stack/components/title";
+import { SectionTitle } from "@/components/ui/section-title";
 
 export function ContentStack() {
   return (
     <section id="stack" className="relative flex flex-col py-10 overflow-hidden">
-      <Title />
+      <SectionTitle text="Stack" />
     </section>
   );
 }
