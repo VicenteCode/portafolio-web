@@ -11,7 +11,7 @@ export function ContentExperience() {
         <div className="absolute left-1.75 top-0 bottom-0 w-px bg-white/10" />
         <div className="flex flex-col gap-10">
           <div className="relative pl-8">
-            <span className="absolute left-0 top-8 w-3.5 h-3.5 rounded-full bg-indigo-400 ring-4 ring-indigo-400/20" />
+            <span className="absolute left-0 top-8 w-3.5 h-3.5 rounded-full bg-red-500 ring-4 ring-red-500/20" />
             <ExperienceCard
               company="Helius Consulting"
               role="Full Stack Developer (Web / Mobile)"
@@ -21,7 +21,7 @@ export function ContentExperience() {
             />
           </div>
           <div className="relative pl-8">
-            <span className="absolute left-0 top-8 w-3.5 h-3.5 rounded-full bg-indigo-400 ring-4 ring-indigo-400/20" />
+            <span className="absolute left-0 top-8 w-3.5 h-3.5 rounded-full bg-red-500 ring-4 ring-red-500/20" />
             <ExperienceCard
               company="Centro de Idiomas Lifelong"
               role="Frontend Web Developer"
