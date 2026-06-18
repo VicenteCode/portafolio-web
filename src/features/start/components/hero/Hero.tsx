@@ -9,7 +9,7 @@ export function Hero() {
       <StarField />
       <div className="relative flex flex-col lg:flex-row w-full items-center gap-10 py-24 lg:py-0">
         <Avatar
-          src="/avatar.png"
+          src="/User.png"
           alt="VicenteCode avatar"
           size="md"
           shape="circle"
