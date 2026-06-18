@@ -4,6 +4,7 @@ import { ContentStack } from "@/features/stack/components/content";
 import { ContentExperience } from "@/features/experience/components/content";
 import { NavigationBar } from "@/features/navigation/components/NavigationBar";
 import { Hero } from "@/features/start/components/hero";
+import { ContentSkills } from "@/features/skills/components/content/ContentSkills";
 
 export default function Page() {
   return (
@@ -12,6 +13,7 @@ export default function Page() {
       <ContentAboutMe />
       <ContentExperience />
       <ContentStack />
+      <ContentSkills />
     </Layout>
   );
 }
