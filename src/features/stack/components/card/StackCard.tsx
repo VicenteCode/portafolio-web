@@ -8,7 +8,7 @@ interface StackCardProps {
 
 export function StackCard({ nombre, icono: Icon }: StackCardProps) {
   return (
-    <Card variant="glass" padding="none" radius="lg" hoverable className="flex flex-col items-center justify-center gap-3 w-24 h-24">
+    <Card variant="glass" padding="none" radius="lg" hoverable className="flex flex-col items-center justify-center gap-2 w-full aspect-square">
       <Icon className="w-10 h-10" />
       <span className="text-sm text-zinc-300 text-center font-medium">{nombre}</span>
     </Card>
