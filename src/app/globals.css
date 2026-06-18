@@ -4,6 +4,11 @@ html {
   scroll-behavior: smooth;
 }
 
+body.menu-open main {
+  filter: blur(4px);
+  transition: filter 0.3s ease;
+}
+
 @theme {
   --font-comic: var(--font-bangers);
   --font-montserrat: var(--font-montserrat);
