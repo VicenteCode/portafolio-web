@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { bangers, montserrat } from "@/lib/fonts";
+import { bangers, montserrat } from "@/lib/fonts/fonts";
 import "./globals.css";
 import { Providers } from "./Providers";
 
