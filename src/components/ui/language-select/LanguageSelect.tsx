@@ -7,15 +7,15 @@ export interface LanguageOption {
     icon: ComponentType<{ className?: string }>;
 }
 
-// Interfaz para las propiedades del componente LanguageSelector
-export interface LanguageSelectorProps {
+// Interfaz para las propiedades del componente LanguageSelect
+export interface LanguageSelectProps {
     options: LanguageOption[];
     active: string;
     onSelect: (value: string) => void;
   }
 
 // Componente para alternar entre idiomas
-export function LanguageSelector({ options, active, onSelect }: LanguageSelectorProps) {
+export function LanguageSelect({ options, active, onSelect }: LanguageSelectProps) {
     return (
         <button
             onClick={() => onSelect(active)}
