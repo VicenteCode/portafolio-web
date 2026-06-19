@@ -15,7 +15,7 @@ export interface LanguageSelectProps {
   }
 
 // Componente para alternar entre idiomas
-export function LanguageSelect({ options, active, onSelect }: LanguageSelectProps) {
+export function LanguageSelectUI({ options, active, onSelect }: LanguageSelectProps) {
     return (
         <button
             onClick={() => onSelect(active)}
