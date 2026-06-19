@@ -17,7 +17,7 @@ interface LangTranslations {
   about: { title: string; description: Segment[] };
   experience: { title: string; roleLabel: string; modalityLabel: string; jobs: Job[] };
   stack: { title: string; showMore: (n: number) => string; showLess: string };
-  skills: { title: string; showMore: (n: number) => string; showLess: string };
+  skills: { title: string; showMore: (n: number) => string; showLess: string; items: readonly string[] };
   education: { title: string; items: EducationItem[] };
 }
 
@@ -100,6 +100,20 @@ export const translations: Record<"en" | "es", LangTranslations> = {
       title: "My Skills",
       showMore: (n) => `Show more (${n} more)`,
       showLess: "Show less",
+      items: [
+        "Agile methodologies and ticket-based management",
+        "Production application deployment",
+        "Creativity",
+        "Clean and hexagonal architecture",
+        "Custom software development",
+        "Application of MVC design patterns",
+        "AI automation tools integration",
+        "Technical communication with different team and business profiles",
+        "Requirements analysis",
+        "Development environment management",
+        "Build generation and signing for Google Play distribution (APK / AAB)",
+        "Frontend architecture with atomic design and container-presentational pattern",
+      ],
     },
     education: {
       title: "My Education",
@@ -187,6 +201,20 @@ export const translations: Record<"en" | "es", LangTranslations> = {
       title: "Mis Habilidades",
       showMore: (n) => `Ver más (${n} más)`,
       showLess: "Ver menos",
+      items: [
+        "Metodologías ágiles y gestión por tickets",
+        "Despliegue de aplicaciones en producción",
+        "Creatividad",
+        "Arquitectura limpia y hexagonal",
+        "Desarrollo de software a medida",
+        "Aplicación de patrones de diseño MVC",
+        "Integración de herramientas de automatización con IA",
+        "Comunicación técnica con distintos perfiles de equipo y negocio",
+        "Análisis de requisitos",
+        "Gestión de entornos de desarrollo",
+        "Generación y firma de builds para distribución en Google Play (APK / AAB)",
+        "Arquitectura frontend con diseño atómico y patrón contenedor-presentacional",
+      ],
     },
     education: {
       title: "Mi Educación",

@@ -3,15 +3,14 @@
 import { SectionTitle } from "@/components/ui/section-title";
 import { StarField } from "@/components/ui/star-field";
 import { SkillCard } from "@/features/skills/components/card";
-import { SKILLS } from "@/features/skills/constants/skills";
 import { useSkills } from "@/features/skills/hooks/useSkills";
 import { useLanguage } from "@/lib/language/LanguageContext";
 import { translations } from "@/lib/language/translations";
 
 export function ContentSkills() {
   const { lang } = useLanguage();
-  const { title, showMore, showLess } = translations[lang].skills;
-  const { visible, hasMore, expanded, hidden, toggle } = useSkills(SKILLS);
+  const { title, showMore, showLess, items } = translations[lang].skills;
+  const { visible, hasMore, expanded, hidden, toggle } = useSkills(items);
 
   return (
     <section id="skills" className="relative flex flex-col py-10 overflow-hidden">
