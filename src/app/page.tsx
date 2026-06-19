@@ -6,7 +6,7 @@ import { ContentExperience } from "@/features/experience/components/content";
 import { NavigationBar } from "@/features/navigation/components/navigation/NavigationBar";
 import { Hero } from "@/features/start/components/hero";
 import { ContentSkills } from "@/features/skills/components/content/ContentSkills";
-import { ContentEducation } from "@/features/education/components/content";
+import { ContentEducation } from "@/features/education/content";
 import { RevealOnScroll } from "@/components/ui/reveal-on-scroll";
 
 export default function Page() {
