@@ -1,8 +1,16 @@
+"use client";
+
+import { useLanguage } from "@/lib/language/LanguageContext";
+import { translations } from "@/lib/language/translations";
+
 type SubTitleProps = {
   className?: string;
 };
 
 export function SubTitle({ className = "" }: SubTitleProps) {
+  const { lang } = useLanguage();
+  const { subtitle } = translations[lang].hero;
+
   return (
     <h2
       className={[
@@ -12,7 +20,7 @@ export function SubTitle({ className = "" }: SubTitleProps) {
         .filter(Boolean)
         .join(" ")}
     >
-      Full Stack Developer
+      {subtitle}
     </h2>
   );
 }

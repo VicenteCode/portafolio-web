@@ -1,8 +1,16 @@
+"use client";
+
+import { useLanguage } from "@/lib/language/LanguageContext";
+import { translations } from "@/lib/language/translations";
+
 type TitleProps = {
   className?: string;
 };
 
 export function Title({ className = "" }: TitleProps) {
+  const { lang } = useLanguage();
+  const { greeting } = translations[lang].hero;
+
   return (
     <h1
       className={[
@@ -12,7 +20,7 @@ export function Title({ className = "" }: TitleProps) {
         .filter(Boolean)
         .join(" ")}
     >
-      Hello, I&apos;m Vicente
+      {greeting}
     </h1>
   );
 }

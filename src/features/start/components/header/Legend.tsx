@@ -1,14 +1,17 @@
 "use client";
 
+import { useLanguage } from "@/lib/language/LanguageContext";
+import { translations } from "@/lib/language/translations";
 import { useRotatingText } from "@/features/start/hooks/useRotatingText";
-import { LEGEND_TEXTS } from "../../constants/legend.constants";
 
 type LegendProps = {
   className?: string;
 };
 
 export function Legend({ className = "" }: LegendProps) {
-  const { current, visible } = useRotatingText(LEGEND_TEXTS, 4500, 700);
+  const { lang } = useLanguage();
+  const legend = translations[lang].hero.legend;
+  const { current, visible } = useRotatingText(legend, 4500, 700);
 
   return (
     <p

@@ -3,7 +3,7 @@ import { Footer } from "@/components/layout/Footer";
 import { ContentAboutMe } from "@/features/about-me/components/content";
 import { ContentStack } from "@/features/stack/components/content";
 import { ContentExperience } from "@/features/experience/components/content";
-import { NavigationBar } from "@/features/navigation/components/NavigationBar";
+import { NavigationBar } from "@/features/navigation/components/navigation/NavigationBar";
 import { Hero } from "@/features/start/components/hero";
 import { ContentSkills } from "@/features/skills/components/content/ContentSkills";
 import { ContentEducation } from "@/features/education/components/content";
