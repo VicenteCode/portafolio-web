@@ -9,9 +9,11 @@ type Item = { id: string; nombre: string; icono: IconType };
 type StackGroupProps = {
   label: string;
   items: Item[];
+  showMore: (n: number) => string;
+  showLess: string;
 };
 
-export function StackGroup({ label, items }: StackGroupProps) {
+export function StackGroup({ label, items, showMore, showLess }: StackGroupProps) {
   const { visible, hasMore, expanded, hidden, toggle } = useStackGroup(items);
 
   return (
@@ -29,7 +31,7 @@ export function StackGroup({ label, items }: StackGroupProps) {
           onClick={toggle}
           className="self-start text-sm text-zinc-400 hover:text-white transition-colors duration-200 underline underline-offset-4"
         >
-          {expanded ? "Ver menos" : `Ver más (${hidden} más)`}
+          {expanded ? showLess : showMore(hidden)}
         </button>
       )}
     </div>
