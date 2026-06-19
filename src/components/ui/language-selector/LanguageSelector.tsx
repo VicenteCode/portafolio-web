@@ -7,18 +7,18 @@ export interface LanguageOption {
     icon: ComponentType<{ className?: string }>;
 }
 
-// Interfaz para las propiedades del componente LanguageToggle
-export interface LanguageToggleProps {
+// Interfaz para las propiedades del componente LanguageSelector
+export interface LanguageSelectorProps {
     options: LanguageOption[];
     active: string;
-    onToggle: () => void;
+    onSelect: (value: string) => void;
   }
 
 // Componente para alternar entre idiomas
-export function LanguageToggle({ options, active, onToggle }: LanguageToggleProps) {
+export function LanguageSelector({ options, active, onSelect }: LanguageSelectorProps) {
     return (
         <button
-            onClick={onToggle}
+            onClick={() => onSelect(active)}
             aria-label="Toggle language"
             className="flex items-center gap-1 text-sm font-medium shrink-0"
         >

@@ -4,6 +4,7 @@ import Link from "next/link";
 import type { ComponentType, ReactNode } from "react";
 import { useNavbar } from "./useNavbar";
 import { useMobileMenu } from "./useMobileMenu";
+import { LanguageToggle } from "@/features/navigation/components/LanguageToggle";
 
 interface NavLink {
   label: string;
@@ -35,7 +36,10 @@ export function Navbar({ links, logo, className }: NavbarProps) {
         .trim()}
     >
       <nav className="h-full px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {logo && <div className="shrink-0">{logo}</div>}
+        <div className="flex items-center gap-3 shrink-0">
+          {logo && <div className="shrink-0">{logo}</div>}
+          <LanguageToggle />
+        </div>
 
         {/* Desktop links */}
         <ul className="hidden lg:flex items-center gap-1 ms-auto" role="list">
