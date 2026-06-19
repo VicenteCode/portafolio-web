@@ -29,6 +29,7 @@ const hoverMap = {
   ghost:    'transition-colors duration-200 hover:bg-surface',
   outlined: 'transition-colors duration-200 hover:border-border-strong',
   filled:   'transition-colors duration-200 hover:bg-surface-raised/70',
+  glass:    'transition-colors duration-200 hover:bg-white/10',
 } as const
 
 type CardProps = {
