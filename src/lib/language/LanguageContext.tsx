@@ -9,7 +9,7 @@ export type Language = "en" | "es";
 // Interface del contexto de idiomas
 interface LanguageContextValue {
   lang: Language;
-  toggle: () => void;
+  setLang: (lang: Language) => void;
 }
 
 // Proveedor del contexto de idiomas
@@ -20,7 +20,7 @@ export function LanguageProvider({ children } : { children: ReactNode }) {
   const [lang, setLang] = useState<Language>("en");
   const toggle = () => setLang((l) => (l === "en" ? "es" : "en"));
   return (
-    <LanguageContext.Provider value={{ lang, toggle }}>
+    <LanguageContext.Provider value={{ lang, setLang }}>
         {children}
     </LanguageContext.Provider>
   );
