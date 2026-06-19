@@ -16,7 +16,7 @@ export interface LanguageSelectorProps {
 }
 
 // UI selector de idioma, con un botón que muestra el idioma actual y un dropdown para seleccionar otros idiomas disponibles. El dropdown se cierra al seleccionar una opción o al hacer clic fuera del componente.
-export function LanguageSelector({ options, active, onSelect }: LanguageSelectorProps) {
+export function LanguageSelectUI({ options, active, onSelect }: LanguageSelectorProps) {
     const [isOpen, setIsOpen] = useState(false);
     const current = options.find((o) => o.value === active);
 
