@@ -37,7 +37,7 @@ export function Navbar({ links, logo, className }: NavbarProps) {
         .trim()}
     >
       <nav className="h-full px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        <div className="flex items-center gap-3 shrink-0">
+        <div className="flex items-center gap-6 shrink-0">
           {logo && <div className="shrink-0">{logo}</div>}
           <LanguageSelect />
           <CvButton className="px-3 py-1.5 text-sm font-medium border border-red-500/60 bg-red-500/10 text-red-400 hover:bg-red-500/20 hover:text-red-300 rounded-lg transition-colors duration-150 [&>span]:hidden [&>span]:sm:inline" />
