@@ -12,7 +12,7 @@ export function PdfButton({ href, label, icon: Icon = FileDown, className = "" }
   return (
     <a href={href} target="_blank" rel="noopener noreferrer" download className={`inline-flex items-center gap-1.5 ${className}`}>
       <Icon className="w-4 h-4" />
-      {label}
+      <span>{label}</span>
     </a>
   );
 }
