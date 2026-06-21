@@ -5,6 +5,7 @@ import type { ComponentType, ReactNode } from "react";
 import { useNavbar } from "./useNavbar";
 import { useMobileMenu } from "./useMobileMenu";
 import { LanguageSelect } from "@/features/navigation/components/select/LanguageSelect";
+import { PdfButton } from "@/features/navigation/components/pdf-button";
 
 interface NavLink {
   label: string;
@@ -39,6 +40,7 @@ export function Navbar({ links, logo, className }: NavbarProps) {
         <div className="flex items-center gap-3 shrink-0">
           {logo && <div className="shrink-0">{logo}</div>}
           <LanguageSelect />
+          <PdfButton />
         </div>
 
         {/* Desktop links */}
