@@ -4,8 +4,8 @@ import { LIBRERIAS } from "@/components/shared/librerias";
 import { HERRAMIENTAS } from "@/components/shared/herramientas";
 
 export const GRUPOS = [
-  { label: "Lenguajes",    items: LENGUAJES    },
-  { label: "Frameworks",   items: FRAMEWORKS   },
-  { label: "Librerías",    items: LIBRERIAS    },
-  { label: "Herramientas", items: HERRAMIENTAS },
+  { items: LENGUAJES    },
+  { items: FRAMEWORKS   },
+  { items: LIBRERIAS    },
+  { items: HERRAMIENTAS },
 ];
