@@ -9,6 +9,7 @@ interface NavTranslations {
   stack: string;
   skills: string;
   education: string;
+  cv: string;
 }
 
 interface LangTranslations {
@@ -30,6 +31,7 @@ export const translations: Record<"en" | "es", LangTranslations> = {
       stack: "Stack",
       skills: "Skills",
       education: "Education",
+      cv: "Download CV",
     },
     hero: {
       greeting: "Hello, I'm Vicente",
@@ -132,6 +134,7 @@ export const translations: Record<"en" | "es", LangTranslations> = {
       stack: "Stack",
       skills: "Habilidades",
       education: "Educación",
+      cv: "Descargar CV",
     },
     hero: {
       greeting: "Hola, soy Vicente",

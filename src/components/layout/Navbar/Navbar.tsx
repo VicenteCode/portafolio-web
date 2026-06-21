@@ -5,7 +5,7 @@ import type { ComponentType, ReactNode } from "react";
 import { useNavbar } from "./useNavbar";
 import { useMobileMenu } from "./useMobileMenu";
 import { LanguageSelect } from "@/features/navigation/components/select/LanguageSelect";
-import { PdfButton } from "@/features/navigation/components/pdf-button";
+import { CvButton } from "@/lib/cv/CvButton";
 
 interface NavLink {
   label: string;
@@ -40,7 +40,7 @@ export function Navbar({ links, logo, className }: NavbarProps) {
         <div className="flex items-center gap-3 shrink-0">
           {logo && <div className="shrink-0">{logo}</div>}
           <LanguageSelect />
-          <PdfButton />
+          <CvButton className="px-3 py-1.5 text-sm font-medium text-zinc-400 hover:text-zinc-100 transition-colors duration-150 rounded-sm" />
         </div>
 
         {/* Desktop links */}
