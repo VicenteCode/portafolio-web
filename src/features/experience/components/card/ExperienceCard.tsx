@@ -30,7 +30,7 @@ export function ExperienceCard({
             <span>{modalityLabel}: {modality}</span>
           </div>
         </div>
-        <p className="text-base text-zinc-200 leading-7">{description}</p>
+        <p className="text-sm md:text-base text-zinc-200 leading-7 text-justify text-pretty hyphens-auto">{description}</p>
       </div>
     </Card>
   );
