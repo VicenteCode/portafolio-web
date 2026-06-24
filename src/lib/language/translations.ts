@@ -6,6 +6,7 @@ interface NavTranslations {
   start: string;
   aboutMe: string;
   experience: string;
+  project: string;
   stack: string;
   skills: string;
   education: string;
@@ -28,6 +29,7 @@ export const translations: Record<"en" | "es", LangTranslations> = {
       start: "Start",
       aboutMe: "About Me",
       experience: "Experience",
+      project: "Project",
       stack: "Stack",
       skills: "Skills",
       education: "Education",
@@ -131,6 +133,7 @@ export const translations: Record<"en" | "es", LangTranslations> = {
       start: "Inicio",
       aboutMe: "Sobre Mí",
       experience: "Experiencia",
+      project: "Proyecto",
       stack: "Stack",
       skills: "Habilidades",
       education: "Educación",
