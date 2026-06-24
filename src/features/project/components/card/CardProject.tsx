@@ -1,5 +1,5 @@
 import Image from "next/image";
-import type { LucideIcon } from "lucide-react";
+import type { IconType } from "react-icons";
 import type { ReactNode } from "react";
 import { Card } from "@/components/ui/card";
 
@@ -11,7 +11,7 @@ type ProjectIcon = {
 type ProjectLink = {
   label: string;
   href: string;
-  icon: LucideIcon;
+  icon: IconType;
 };
 
 type CardProjectProps = {
