@@ -19,6 +19,7 @@ interface LangTranslations {
   about: { title: string; description: Segment[] };
   experience: { title: string; roleLabel: string; modalityLabel: string; jobs: Job[] };
   stack: { title: string; showMore: (n: number) => string; showLess: string; groupLabels: { languages: string; frameworks: string; libraries: string; tools: string } };
+  project: { title: string };
   skills: { title: string; showMore: (n: number) => string; showLess: string; items: readonly string[] };
   education: { title: string; items: EducationItem[] };
 }
@@ -94,6 +95,9 @@ export const translations: Record<"en" | "es", LangTranslations> = {
             "Collaborated in the development of a website using ReactJS with a focus on the frontend. Implemented the contact form to ensure user interaction and designed an image slideshow with timed transitions to enhance visual dynamism. Applied UX/UI design principles to deliver an attractive and intuitive interface.",
         },
       ],
+    },
+    project: {
+      title: "My Projects",
     },
     stack: {
       title: "My Stack",
@@ -198,6 +202,9 @@ export const translations: Record<"en" | "es", LangTranslations> = {
             "Colaboré en el desarrollo de un sitio web usando ReactJS con foco en el frontend. Implementé el formulario de contacto para asegurar la interacción con el usuario y diseñé un carrusel de imágenes con transiciones temporizadas para mejorar el dinamismo visual. Apliqué principios de diseño UX/UI para lograr una interfaz atractiva e intuitiva.",
         },
       ],
+    },
+    project: {
+      title: "Mis Proyectos",
     },
     stack: {
       title: "Mi Stack",

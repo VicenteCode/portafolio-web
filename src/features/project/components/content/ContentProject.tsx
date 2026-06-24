@@ -6,7 +6,7 @@ import { translations } from "@/lib/language/translations";
 
 export function ContentProject() {
     const { lang } = useLanguage();
-    const { title } = translations[lang].about;
+    const { title } = translations[lang].project;
 
     return (
         <section id="project" className="relative flex flex-col py-10 overflow-hidden">
