@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { IconType } from "react-icons";
 import type { ReactNode } from "react";
 import { Card } from "@/components/ui/card";
@@ -21,14 +22,25 @@ type ProjectLink = {
 type CardProjectProps = {
   title: string;
   description: string;
-  image: string;
+  images: string[];
   icons: ProjectIcon[];
   links: ProjectLink[];
   inProgress?: string;
 };
 
-export function CardProject({ title, description, image, icons, links, inProgress }: CardProjectProps) {
+export function CardProject({ title, description, images, icons, links, inProgress }: CardProjectProps) {
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const hasMultiple = images.length > 1;
+
+  const prev = () => setCurrentIndex((i) => (i - 1 + images.length) % images.length);
+  const next = () => setCurrentIndex((i) => (i + 1) % images.length);
+
+  const openAt = (index: number) => {
+    setCurrentIndex(index);
+    setLightboxOpen(true);
+  };
 
   return (
     <>
@@ -45,9 +57,14 @@ export function CardProject({ title, description, image, icons, links, inProgres
 
         <div
           className="relative w-full h-48 cursor-zoom-in"
-          onClick={() => setLightboxOpen(true)}
+          onClick={() => openAt(0)}
         >
-          <Image src={image} alt={title} fill className="object-cover" />
+          <Image src={images[0]} alt={title} fill className="object-cover" />
+          {hasMultiple && (
+            <span className="absolute bottom-2 right-2 rounded-full bg-black/60 px-2 py-0.5 text-xs text-white backdrop-blur-sm">
+              1 / {images.length}
+            </span>
+          )}
         </div>
 
         <div className="flex flex-col gap-3 p-5 flex-1">
@@ -93,7 +110,27 @@ export function CardProject({ title, description, image, icons, links, inProgres
         className="max-w-4xl p-2 bg-zinc-900 border-zinc-800"
       >
         <div className="relative w-full h-[70vh]">
-          <Image src={image} alt={title} fill className="object-contain rounded-lg" />
+          <Image src={images[currentIndex]} alt={`${title} ${currentIndex + 1}`} fill className="object-contain rounded-lg" />
+
+          {hasMultiple && (
+            <>
+              <button
+                onClick={prev}
+                className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-black/60 p-1.5 text-white hover:bg-black/80 transition-colors"
+              >
+                <ChevronLeft size={20} />
+              </button>
+              <button
+                onClick={next}
+                className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-black/60 p-1.5 text-white hover:bg-black/80 transition-colors"
+              >
+                <ChevronRight size={20} />
+              </button>
+              <span className="absolute bottom-3 left-1/2 -translate-x-1/2 rounded-full bg-black/60 px-3 py-0.5 text-xs text-white backdrop-blur-sm">
+                {currentIndex + 1} / {images.length}
+              </span>
+            </>
+          )}
         </div>
       </Modal>
     </>

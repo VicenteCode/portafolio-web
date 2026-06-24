@@ -14,7 +14,7 @@ type StaticProjectLink = {
 
 type StaticProject = {
   id: string;
-  image: string;
+  images: string[];
   icons: StaticProjectIcon[];
   links: StaticProjectLink[];
 };
@@ -22,7 +22,7 @@ type StaticProject = {
 export const PROJECTS_STATIC: StaticProject[] = [
   {
     id: "fadeforge-api",
-    image: "/projects/ProyectoApiFadeForge.jpeg",
+    images: ["/projects/ProyectoApiFadeForge.jpeg"],
     icons: [
       { Icon: SiNodedotjs,  name: "Node.js"     },
       { Icon: SiExpress,    name: "Express"     },

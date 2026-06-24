@@ -24,7 +24,7 @@ export function ContentProject() {
               key={item.id}
               title={item.title}
               description={item.description}
-              image={staticData.image}
+              images={staticData.images}
               icons={staticData.icons.map(({ Icon, name }) => ({ icon: <Icon size={16} />, name }))}
               links={staticData.links}
               inProgress={item.inProgress}
