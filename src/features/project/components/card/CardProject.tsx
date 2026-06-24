@@ -32,7 +32,7 @@ export function CardProject({ title, description, image, icons, links, inProgres
       className="overflow-hidden transition-transform duration-200 hover:scale-[1.02] flex flex-col"
     >
       <div className="flex flex-col gap-3 p-5">
-        <h3 className="text-lg font-bold text-white">{title}</h3>
+        <h3 className="text-lg font-bold text-red-500">{title}</h3>
         <p className="text-sm text-zinc-200 leading-6 text-pretty">{description}</p>
       </div>
 
@@ -50,18 +50,18 @@ export function CardProject({ title, description, image, icons, links, inProgres
           ))}
         </div>
 
-        <hr className="border-white/10" />
+        <hr className="border-red-500/40" />
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
           {links.map(({ label, href, icon: Icon }) => (
             <a
               key={href}
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-sm text-zinc-400 hover:text-white transition-colors duration-200"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/10 bg-white/5 text-xs text-zinc-300 hover:border-red-500/50 hover:text-red-400 transition-colors duration-200"
             >
-              <Icon size={15} />
+              <Icon size={13} />
               {label}
             </a>
           ))}
