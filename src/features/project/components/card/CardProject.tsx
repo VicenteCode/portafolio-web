@@ -1,12 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import type { IconType } from "react-icons";
 import type { ReactNode } from "react";
 import { Card } from "@/components/ui/card";
-import { Modal } from "@/components/ui/modal";
 
 type ProjectIcon = {
   icon: ReactNode;
@@ -34,8 +34,15 @@ export function CardProject({ title, description, images, icons, links, inProgre
 
   const hasMultiple = images.length > 1;
 
-  const prev = () => setCurrentIndex((i) => (i - 1 + images.length) % images.length);
-  const next = () => setCurrentIndex((i) => (i + 1) % images.length);
+  const prev = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setCurrentIndex((i) => (i - 1 + images.length) % images.length);
+  };
+
+  const next = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setCurrentIndex((i) => (i + 1) % images.length);
+  };
 
   const openAt = (index: number) => {
     setCurrentIndex(index);
@@ -103,36 +110,49 @@ export function CardProject({ title, description, images, icons, links, inProgre
         </div>
       </Card>
 
-      <Modal
-        isOpen={lightboxOpen}
-        onClose={() => setLightboxOpen(false)}
-        title={title}
-        className="max-w-4xl p-2 bg-zinc-900 border-zinc-800"
-      >
-        <div className="relative w-full h-[70vh]">
-          <Image src={images[currentIndex]} alt={`${title} ${currentIndex + 1}`} fill className="object-contain rounded-lg" />
+      {lightboxOpen && createPortal(
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm"
+          onClick={() => setLightboxOpen(false)}
+        >
+          <div className="absolute inset-0">
+            <Image
+              src={images[currentIndex]}
+              alt={`${title} ${currentIndex + 1}`}
+              fill
+              className="object-contain"
+            />
+          </div>
+
+          <button
+            onClick={() => setLightboxOpen(false)}
+            className="absolute top-4 right-4 z-10 rounded-full bg-white/10 p-2 text-white hover:bg-white/20 transition-colors"
+          >
+            <X size={22} />
+          </button>
 
           {hasMultiple && (
             <>
               <button
                 onClick={prev}
-                className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-black/60 p-1.5 text-white hover:bg-black/80 transition-colors"
+                className="absolute left-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/10 p-2 text-white hover:bg-white/20 transition-colors"
               >
-                <ChevronLeft size={20} />
+                <ChevronLeft size={24} />
               </button>
               <button
                 onClick={next}
-                className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-black/60 p-1.5 text-white hover:bg-black/80 transition-colors"
+                className="absolute right-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/10 p-2 text-white hover:bg-white/20 transition-colors"
               >
-                <ChevronRight size={20} />
+                <ChevronRight size={24} />
               </button>
-              <span className="absolute bottom-3 left-1/2 -translate-x-1/2 rounded-full bg-black/60 px-3 py-0.5 text-xs text-white backdrop-blur-sm">
+              <span className="absolute bottom-4 left-1/2 z-10 -translate-x-1/2 rounded-full bg-black/60 px-3 py-1 text-xs text-white backdrop-blur-sm">
                 {currentIndex + 1} / {images.length}
               </span>
             </>
           )}
-        </div>
-      </Modal>
+        </div>,
+        document.body
+      )}
     </>
   );
 }
