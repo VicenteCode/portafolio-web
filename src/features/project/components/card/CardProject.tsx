@@ -50,6 +50,8 @@ export function CardProject({ title, description, image, icons, links, inProgres
           ))}
         </div>
 
+        <hr className="border-white/10" />
+
         <div className="flex items-center gap-3">
           {links.map(({ label, href, icon: Icon }) => (
             <a
@@ -66,7 +68,7 @@ export function CardProject({ title, description, image, icons, links, inProgres
         </div>
 
         {inProgress && (
-          <div className="flex items-center gap-1.5 pt-1">
+          <div className="flex items-center justify-center gap-1.5 pt-1">
             <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse shrink-0" />
             <span className="text-xs font-medium text-amber-300">{inProgress}</span>
           </div>
