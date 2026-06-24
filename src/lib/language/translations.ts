@@ -1,11 +1,13 @@
 type Segment = { text: string; highlight?: boolean };
 type Job = { company: string; role: string; period: string; modality: string; description: string };
 type EducationItem = { career: string; school: string; period: string };
+type ProjectItem = { id: string; title: string; description: string; inProgress?: string };
 
 interface NavTranslations {
   start: string;
   aboutMe: string;
   experience: string;
+  project: string;
   stack: string;
   skills: string;
   education: string;
@@ -18,6 +20,7 @@ interface LangTranslations {
   about: { title: string; description: Segment[] };
   experience: { title: string; roleLabel: string; modalityLabel: string; jobs: Job[] };
   stack: { title: string; showMore: (n: number) => string; showLess: string; groupLabels: { languages: string; frameworks: string; libraries: string; tools: string } };
+  project: { title: string; items: ProjectItem[] };
   skills: { title: string; showMore: (n: number) => string; showLess: string; items: readonly string[] };
   education: { title: string; items: EducationItem[] };
 }
@@ -28,6 +31,7 @@ export const translations: Record<"en" | "es", LangTranslations> = {
       start: "Start",
       aboutMe: "About Me",
       experience: "Experience",
+      project: "Project",
       stack: "Stack",
       skills: "Skills",
       education: "Education",
@@ -93,6 +97,17 @@ export const translations: Record<"en" | "es", LangTranslations> = {
         },
       ],
     },
+    project: {
+      title: "My Projects",
+      items: [
+        {
+          id: "fadeforge-api",
+          title: "FadeForge API",
+          description: "REST API for appointment management in barbershops. Built with Hexagonal Architecture, JWT authentication, role-based access control, and Swagger documentation.",
+          inProgress: "In Progress",
+        },
+      ],
+    },
     stack: {
       title: "My Stack",
       showMore: (n) => `Show more (${n} more)`,
@@ -131,6 +146,7 @@ export const translations: Record<"en" | "es", LangTranslations> = {
       start: "Inicio",
       aboutMe: "Sobre Mí",
       experience: "Experiencia",
+      project: "Proyecto",
       stack: "Stack",
       skills: "Habilidades",
       education: "Educación",
@@ -193,6 +209,17 @@ export const translations: Record<"en" | "es", LangTranslations> = {
           modality: "Híbrido",
           description:
             "Colaboré en el desarrollo de un sitio web usando ReactJS con foco en el frontend. Implementé el formulario de contacto para asegurar la interacción con el usuario y diseñé un carrusel de imágenes con transiciones temporizadas para mejorar el dinamismo visual. Apliqué principios de diseño UX/UI para lograr una interfaz atractiva e intuitiva.",
+        },
+      ],
+    },
+    project: {
+      title: "Mis Proyectos",
+      items: [
+        {
+          id: "fadeforge-api",
+          title: "FadeForge API",
+          description: "API REST para gestión de citas en barberías. Construida con Arquitectura Hexagonal, autenticación JWT, control de acceso por roles y documentación Swagger.",
+          inProgress: "En progreso",
         },
       ],
     },
