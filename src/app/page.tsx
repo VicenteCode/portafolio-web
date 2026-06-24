@@ -8,6 +8,7 @@ import { Hero } from "@/features/start/components/hero";
 import { ContentSkills } from "@/features/skills/components/content/ContentSkills";
 import { ContentEducation } from "@/features/education/content";
 import { RevealOnScroll } from "@/components/ui/reveal-on-scroll";
+import { ContentProject } from "@/features/project/components/content/ContentProject";
 
 export default function Page() {
   return (
@@ -15,6 +16,7 @@ export default function Page() {
       <Hero />
       <RevealOnScroll><ContentAboutMe /></RevealOnScroll>
       <RevealOnScroll><ContentExperience /></RevealOnScroll>
+      <RevealOnScroll><ContentProject /></RevealOnScroll>
       <RevealOnScroll><ContentStack /></RevealOnScroll>
       <RevealOnScroll><ContentSkills /></RevealOnScroll>
       <RevealOnScroll><ContentEducation /></RevealOnScroll>
