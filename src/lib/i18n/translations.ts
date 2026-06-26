@@ -85,7 +85,7 @@ export const translations: Record<"en" | "es", LangTranslations> = {
           period: "Sep 2025 – Jun 2026 · 9 months",
           modality: "Hybrid",
           description:
-            "Full Stack Developer with experience in custom web and mobile projects: requirements gathering, development, and production deployment. Built management, reporting, coworking, and billing systems using React and TypeScript on the frontend, Node.js and .NET on the backend, and mobile. Integration and consumption of REST APIs for service-to-service communication. Applied Clean Architecture, SOLID principles, and MVC and Hexagonal patterns. Worked under agile methodologies with ticket-based management, version control, and CI/CD pipeline setup in Azure DevOps for test automation and continuous deployment. Also integrated AI automation and have experience in direct client-facing communication.",
+            "Contributed to a large-scale coworking platform serving multiple concurrent users, working across both web and mobile end to end. Developed key modules including billing, reservations, social features, and contact management, as well as backend API endpoints powering cross-platform communication. Built with React and TypeScript on the frontend and Node.js and .NET on the backend and mobile, applying Clean Architecture, SOLID principles, and MVC and Hexagonal patterns. Worked under agile methodologies with CI/CD pipelines in Azure DevOps for test automation and continuous deployment. Also integrated AI automation tools and maintained direct client communication throughout the project.",
         },
         {
           company: "Centro de Idiomas Lifelong",
@@ -200,7 +200,7 @@ export const translations: Record<"en" | "es", LangTranslations> = {
           period: "Sep 2025 – Jun 2026 · 9 meses",
           modality: "Híbrido",
           description:
-            "Desarrollador Full Stack con experiencia en proyectos web y móviles a medida: relevamiento de requisitos, desarrollo y despliegue en producción. Construí sistemas de gestión, reportes, coworking y facturación usando React y TypeScript en el frontend, Node.js y .NET en el backend y móvil. Integración y consumo de APIs REST para comunicación entre servicios. Apliqué Arquitectura Limpia, principios SOLID y patrones MVC y Hexagonal. Trabajé bajo metodologías ágiles con gestión por tickets, control de versiones y configuración de pipelines CI/CD en Azure DevOps para automatización de tests y despliegue continuo. También integré automatización con IA y tengo experiencia en comunicación directa con clientes.",
+            "Participé en una plataforma de coworking a gran escala con múltiples usuarios concurrentes, trabajando tanto en web como en móvil de extremo a extremo. Desarrollé módulos clave como facturación, reservas, funcionalidades sociales y gestión de contactos, además de endpoints de API que habilitaron la comunicación entre plataformas. Stack: React y TypeScript en el frontend, Node.js y .NET en el backend y móvil, aplicando Arquitectura Limpia, principios SOLID y patrones MVC y Hexagonal. Trabajé bajo metodologías ágiles con pipelines CI/CD en Azure DevOps para automatización de tests y despliegue continuo. También integré herramientas de automatización con IA y mantuve comunicación directa con clientes a lo largo del proyecto.",
         },
         {
           company: "Centro de Idiomas Lifelong",
