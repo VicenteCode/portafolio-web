@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { bangers, montserrat } from "@/lib/fonts/fonts";
 import "./globals.css";
-import { Providers } from "./Providers";
 
 export const metadata: Metadata = {
   title: {
@@ -25,15 +24,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`h-full antialiased ${bangers.variable} ${montserrat.variable}`}>
       <body className="min-h-full flex flex-col bg-zinc-950 text-zinc-100">
-        <Providers>
-          {children}
-        </Providers>
+        {children}
       </body>
     </html>
   );

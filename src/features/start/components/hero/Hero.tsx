@@ -3,7 +3,13 @@ import { Title, SubTitle, Legend } from "@/features/start/components/header";
 import { BtnLinks } from "@/features/start/components/Button";
 import { StarField } from "@/components/ui/star-field";
 
-export function Hero() {
+type HeroTranslations = {
+  greeting: string;
+  subtitle: string;
+  legend: readonly string[];
+};
+
+export function Hero({ t }: { t: HeroTranslations }) {
   return (
     <section id="start" className="relative min-h-screen flex items-center overflow-hidden">
       <StarField />
@@ -22,10 +28,10 @@ export function Hero() {
           <div className="absolute bottom-0 inset-x-0 h-1/3 bg-gradient-to-t from-zinc-950 to-transparent rounded-b-full pointer-events-none" />
         </div>
         <div className="flex flex-1 flex-col gap-8 items-center text-center lg:items-start lg:text-left">
-          <Title />
+          <Title greeting={t.greeting} />
           <div className="flex flex-col gap-2">
-            <SubTitle />
-            <Legend />
+            <SubTitle subtitle={t.subtitle} />
+            <Legend texts={t.legend} />
           </div>
           <BtnLinks />
         </div>

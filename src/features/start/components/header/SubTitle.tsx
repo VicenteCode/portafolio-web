@@ -1,16 +1,9 @@
-"use client";
-
-import { useLanguage } from "@/lib/language/LanguageContext";
-import { translations } from "@/lib/language/translations";
-
 type SubTitleProps = {
+  subtitle: string;
   className?: string;
 };
 
-export function SubTitle({ className = "" }: SubTitleProps) {
-  const { lang } = useLanguage();
-  const { subtitle } = translations[lang].hero;
-
+export function SubTitle({ subtitle, className = "" }: SubTitleProps) {
   return (
     <h2
       className={[

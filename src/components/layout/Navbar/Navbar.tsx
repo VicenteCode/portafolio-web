@@ -4,8 +4,9 @@ import Link from "next/link";
 import type { ComponentType, ReactNode } from "react";
 import { useNavbar } from "./useNavbar";
 import { useMobileMenu } from "./useMobileMenu";
-import { LanguageSelect } from "@/features/navigation/components/select/LanguageSelect";
+import { LanguageSwitcher } from "@/features/navigation/components/select/LanguageSwitcher";
 import { CvButton } from "@/lib/cv/CvButton";
+import type { Lang } from "@/lib/i18n/types";
 
 interface NavLink {
   label: string;
@@ -15,11 +16,12 @@ interface NavLink {
 
 interface NavbarProps {
   links: NavLink[];
+  lang: Lang;
   logo?: ReactNode;
   className?: string;
 }
 
-export function Navbar({ links, logo, className }: NavbarProps) {
+export function Navbar({ links, lang, logo, className }: NavbarProps) {
   const hrefs = links.map((l) => l.href);
   const { isScrolled, activeSection } = useNavbar(hrefs);
   const { isOpen, toggle, close } = useMobileMenu();
@@ -39,8 +41,8 @@ export function Navbar({ links, logo, className }: NavbarProps) {
       <nav className="h-full px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         <div className="flex items-center gap-6 shrink-0">
           {logo && <div className="shrink-0">{logo}</div>}
-          <LanguageSelect />
-          <CvButton className="px-3 py-1.5 text-sm font-medium border border-red-500/60 bg-red-500/10 text-red-400 hover:bg-red-500/20 hover:text-red-300 rounded-lg transition-colors duration-150 [&>span]:hidden [&>span]:sm:inline" />
+          <LanguageSwitcher currentLang={lang} />
+          <CvButton lang={lang} className="px-3 py-1.5 text-sm font-medium border border-red-500/60 bg-red-500/10 text-red-400 hover:bg-red-500/20 hover:text-red-300 rounded-lg transition-colors duration-150 [&>span]:hidden [&>span]:sm:inline" />
         </div>
 
         {/* Desktop links */}

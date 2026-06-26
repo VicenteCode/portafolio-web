@@ -1,16 +1,9 @@
-"use client";
-
-import { useLanguage } from "@/lib/language/LanguageContext";
-import { translations } from "@/lib/language/translations";
-
 type TitleProps = {
+  greeting: string;
   className?: string;
 };
 
-export function Title({ className = "" }: TitleProps) {
-  const { lang } = useLanguage();
-  const { greeting } = translations[lang].hero;
-
+export function Title({ greeting, className = "" }: TitleProps) {
   return (
     <h1
       className={[
