@@ -13,7 +13,7 @@ function getIp(request: NextRequest): string {
   );
 }
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   if (PDF_PATTERN.test(pathname)) {
@@ -41,6 +41,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  // Runs on all routes except _next, favicon, and static files that are NOT .pdf
   matcher: ["/((?!_next|favicon\\.ico|.*\\.(?!pdf$)[a-zA-Z0-9]+$).*)"],
 };
