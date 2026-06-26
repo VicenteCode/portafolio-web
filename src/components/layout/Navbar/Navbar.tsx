@@ -1,28 +1,34 @@
 "use client";
 
 import Link from "next/link";
-import type { ComponentType, ReactNode } from "react";
+import type { ReactNode } from "react";
 import { useNavbar } from "./useNavbar";
 import { useMobileMenu } from "./useMobileMenu";
-import { LanguageSelect } from "@/features/navigation/components/select/LanguageSelect";
+import { LanguageSwitcher } from "@/features/navigation/components/select/LanguageSwitcher";
 import { CvButton } from "@/lib/cv/CvButton";
+import type { Lang } from "@/lib/i18n/types";
+import { NAV_LINKS } from "@/features/navigation/constants/NavLinks";
 
 interface NavLink {
   label: string;
   href: string;
-  icon?: ComponentType<{ className?: string; size?: number }>;
 }
 
 interface NavbarProps {
   links: NavLink[];
+  lang: Lang;
   logo?: ReactNode;
   className?: string;
 }
 
-export function Navbar({ links, logo, className }: NavbarProps) {
+export function Navbar({ links, lang, logo, className }: NavbarProps) {
   const hrefs = links.map((l) => l.href);
   const { isScrolled, activeSection } = useNavbar(hrefs);
   const { isOpen, toggle, close } = useMobileMenu();
+  const enrichedLinks = links.map((link) => ({
+    ...link,
+    icon: NAV_LINKS.find((nl) => nl.href === link.href)?.icon,
+  }));
 
   return (
     <header
@@ -39,13 +45,13 @@ export function Navbar({ links, logo, className }: NavbarProps) {
       <nav className="h-full px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         <div className="flex items-center gap-6 shrink-0">
           {logo && <div className="shrink-0">{logo}</div>}
-          <LanguageSelect />
-          <CvButton className="px-3 py-1.5 text-sm font-medium border border-red-500/60 bg-red-500/10 text-red-400 hover:bg-red-500/20 hover:text-red-300 rounded-lg transition-colors duration-150 [&>span]:hidden [&>span]:sm:inline" />
+          <LanguageSwitcher currentLang={lang} />
+          <CvButton lang={lang} className="px-3 py-1.5 text-sm font-medium border border-red-500/60 bg-red-500/10 text-red-400 hover:bg-red-500/20 hover:text-red-300 rounded-lg transition-colors duration-150 [&>span]:hidden [&>span]:sm:inline" />
         </div>
 
         {/* Desktop links */}
         <ul className="hidden lg:flex items-center gap-1 ms-auto" role="list">
-          {links.map(({ label, href, icon: Icon }) => {
+          {enrichedLinks.map(({ label, href, icon: Icon }) => {
             const isActive = activeSection === href;
             return (
               <li key={href}>
@@ -89,7 +95,7 @@ export function Navbar({ links, logo, className }: NavbarProps) {
         }`}
       >
         <ul className="relative z-10 flex flex-col items-center gap-4 w-full max-w-xs">
-          {links.map(({ label, href, icon: Icon }) => (
+          {enrichedLinks.map(({ label, href, icon: Icon }) => (
             <li key={href} className="w-full">
               <Link
                 href={href}

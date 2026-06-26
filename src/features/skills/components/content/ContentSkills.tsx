@@ -4,11 +4,10 @@ import { SectionTitle } from "@/components/ui/section-title";
 import { StarField } from "@/components/ui/star-field";
 import { SkillCard } from "@/features/skills/components/card";
 import { useSkills } from "@/features/skills/hooks/useSkills";
-import { useLanguage } from "@/lib/language/LanguageContext";
-import { translations } from "@/lib/language/translations";
+import { translations } from "@/lib/i18n/translations";
+import type { Lang } from "@/lib/i18n/types";
 
-export function ContentSkills() {
-  const { lang } = useLanguage();
+export function ContentSkills({ lang }: { lang: Lang }) {
   const { title, showMore, showLess, items } = translations[lang].skills;
   const { visible, hasMore, expanded, hidden, toggle } = useSkills(items);
 

@@ -1,25 +1,6 @@
-import { Layout } from "@/components/layout/Layout";
-import { Footer } from "@/components/layout/Footer";
-import { ContentAboutMe } from "@/features/about-me/components/content";
-import { ContentStack } from "@/features/stack/components/content";
-import { ContentExperience } from "@/features/experience/components/content";
-import { NavigationBar } from "@/features/navigation/components/navigation/NavigationBar";
-import { Hero } from "@/features/start/components/hero";
-import { ContentSkills } from "@/features/skills/components/content/ContentSkills";
-import { ContentEducation } from "@/features/education/content";
-import { RevealOnScroll } from "@/components/ui/reveal-on-scroll";
-import { ContentProject } from "@/features/project/components/content/ContentProject";
+import { redirect } from "next/navigation";
+import { DEFAULT_LANG } from "@/lib/i18n/types";
 
-export default function Page() {
-  return (
-    <Layout navbar={<NavigationBar />} footer={<Footer />}>
-      <Hero />
-      <RevealOnScroll><ContentAboutMe /></RevealOnScroll>
-      <RevealOnScroll><ContentExperience /></RevealOnScroll>
-      <RevealOnScroll><ContentProject /></RevealOnScroll>
-      <RevealOnScroll><ContentStack /></RevealOnScroll>
-      <RevealOnScroll><ContentSkills /></RevealOnScroll>
-      <RevealOnScroll><ContentEducation /></RevealOnScroll>
-    </Layout>
-  );
+export default function RootPage() {
+  redirect(`/${DEFAULT_LANG}`);
 }
