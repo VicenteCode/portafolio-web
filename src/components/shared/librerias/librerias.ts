@@ -1,6 +1,8 @@
 import type { IconType } from "react-icons";
 import { SiReact, SiTailwindcss, SiReactquery, SiAxios, SiReactrouter } from "react-icons/si";
 import { TbPackage } from "react-icons/tb";
+import { GiBearFace } from "react-icons/gi";
+import { LuChevronsUp } from "react-icons/lu";
 
 export type Libreria = {
   id: string;
@@ -15,5 +17,6 @@ export const LIBRERIAS: Libreria[] = [
   { id: "tanstack",     nombre: "TanStack Query",  icono: SiReactquery  },
   { id: "axios",        nombre: "Axios",           icono: SiAxios       },
   { id: "reactrouter",  nombre: "React Router",    icono: SiReactrouter },
-  { id: "zustand",      nombre: "Zustand",         icono: TbPackage     },
+  { id: "zustand",      nombre: "Zustand",         icono: GiBearFace    },
+  { id: "gluestack",   nombre: "Gluestack UI",    icono: LuChevronsUp  },
 ];

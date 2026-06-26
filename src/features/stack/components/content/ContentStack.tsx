@@ -7,7 +7,7 @@ import { GRUPOS } from "@/features/stack/constants";
 import { translations } from "@/lib/i18n/translations";
 import type { Lang } from "@/lib/i18n/types";
 
-const GROUP_KEYS = ["languages", "frameworks", "libraries", "tools"] as const;
+const GROUP_KEYS = ["languages", "frameworks", "libraries", "databases", "tools"] as const;
 
 export function ContentStack({ lang }: { lang: Lang }) {
   const { title, showMore, showLess, groupLabels } = translations[lang].stack;

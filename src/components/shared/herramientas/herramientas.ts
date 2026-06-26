@@ -2,10 +2,9 @@ import type { IconType } from "react-icons";
 import {
   SiGit, SiNodedotjs, SiGithub, SiDocker, SiPostman, SiSwagger,
   SiAndroidstudio, SiJira, SiFigma,
-  SiPostgresql, SiVercel, SiSlack, SiPrisma,
+  SiVercel, SiSlack,
 } from "react-icons/si";
-import { LuTerminal } from "react-icons/lu";
-import { TbApi, TbBrandAzure } from "react-icons/tb";
+import { TbBrandAzure } from "react-icons/tb";
 
 export type Herramienta = {
   id: string;
@@ -24,10 +23,6 @@ export const HERRAMIENTAS: Herramienta[] = [
   { id: "azuredevops",   nombre: "Azure DevOps",    icono: TbBrandAzure     },
   { id: "jira",          nombre: "Jira",            icono: SiJira           },
   { id: "figma",         nombre: "Figma",           icono: SiFigma          },
-  { id: "cli",           nombre: "CLI",             icono: LuTerminal       },
-  { id: "postgresql",    nombre: "PostgreSQL",      icono: SiPostgresql     },
   { id: "vercel",        nombre: "Vercel",          icono: SiVercel         },
   { id: "slack",         nombre: "Slack",           icono: SiSlack          },
-  { id: "prisma",        nombre: "Prisma",          icono: SiPrisma         },
-  { id: "api",           nombre: "APIs",            icono: TbApi            },
 ];
