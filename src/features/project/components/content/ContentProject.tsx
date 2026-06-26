@@ -1,3 +1,5 @@
+"use client";
+
 import { SectionTitle } from "@/components/ui/section-title";
 import { StarField } from "@/components/ui/star-field";
 import { PROJECTS_STATIC } from "@/features/project/constants/projects";

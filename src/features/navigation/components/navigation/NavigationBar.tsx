@@ -5,10 +5,9 @@ import type { Lang } from "@/lib/i18n/types";
 
 export function NavigationBar({ lang }: { lang: Lang }) {
   const t = translations[lang].nav;
-  const links = NAV_LINKS.map(({ key, href, icon }) => ({
+  const links = NAV_LINKS.map(({ key, href }) => ({
     label: t[key as keyof typeof t],
     href,
-    icon,
   }));
   return <Navbar links={links} lang={lang} />;
 }

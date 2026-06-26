@@ -1,17 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import type { ComponentType, ReactNode } from "react";
+import type { ReactNode } from "react";
 import { useNavbar } from "./useNavbar";
 import { useMobileMenu } from "./useMobileMenu";
 import { LanguageSwitcher } from "@/features/navigation/components/select/LanguageSwitcher";
 import { CvButton } from "@/lib/cv/CvButton";
 import type { Lang } from "@/lib/i18n/types";
+import { NAV_LINKS } from "@/features/navigation/constants/NavLinks";
 
 interface NavLink {
   label: string;
   href: string;
-  icon?: ComponentType<{ className?: string; size?: number }>;
 }
 
 interface NavbarProps {
@@ -25,6 +25,10 @@ export function Navbar({ links, lang, logo, className }: NavbarProps) {
   const hrefs = links.map((l) => l.href);
   const { isScrolled, activeSection } = useNavbar(hrefs);
   const { isOpen, toggle, close } = useMobileMenu();
+  const enrichedLinks = links.map((link) => ({
+    ...link,
+    icon: NAV_LINKS.find((nl) => nl.href === link.href)?.icon,
+  }));
 
   return (
     <header
@@ -47,7 +51,7 @@ export function Navbar({ links, lang, logo, className }: NavbarProps) {
 
         {/* Desktop links */}
         <ul className="hidden lg:flex items-center gap-1 ms-auto" role="list">
-          {links.map(({ label, href, icon: Icon }) => {
+          {enrichedLinks.map(({ label, href, icon: Icon }) => {
             const isActive = activeSection === href;
             return (
               <li key={href}>
@@ -91,7 +95,7 @@ export function Navbar({ links, lang, logo, className }: NavbarProps) {
         }`}
       >
         <ul className="relative z-10 flex flex-col items-center gap-4 w-full max-w-xs">
-          {links.map(({ label, href, icon: Icon }) => (
+          {enrichedLinks.map(({ label, href, icon: Icon }) => (
             <li key={href} className="w-full">
               <Link
                 href={href}
