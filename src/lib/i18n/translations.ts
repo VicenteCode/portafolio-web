@@ -19,7 +19,7 @@ interface LangTranslations {
   hero: { greeting: string; subtitle: string; legend: readonly string[] };
   about: { title: string; description: Segment[] };
   experience: { title: string; roleLabel: string; modalityLabel: string; jobs: Job[] };
-  stack: { title: string; showMore: (n: number) => string; showLess: string; groupLabels: { languages: string; frameworks: string; libraries: string; tools: string } };
+  stack: { title: string; showMore: (n: number) => string; showLess: string; groupLabels: { languages: string; frameworks: string; libraries: string; databases: string; tools: string } };
   project: { title: string; items: ProjectItem[] };
   skills: { title: string; showMore: (n: number) => string; showLess: string; items: readonly string[] };
   education: { title: string; items: EducationItem[] };
@@ -117,7 +117,7 @@ export const translations: Record<"en" | "es", LangTranslations> = {
       title: "My Stack",
       showMore: (n) => `Show more (${n} more)`,
       showLess: "Show less",
-      groupLabels: { languages: "Languages", frameworks: "Frameworks", libraries: "Libraries", tools: "Tools" },
+      groupLabels: { languages: "Languages", frameworks: "Frameworks", libraries: "Libraries", databases: "Databases", tools: "Tools" },
     },
     skills: {
       title: "My Skills",
@@ -237,7 +237,7 @@ export const translations: Record<"en" | "es", LangTranslations> = {
       title: "Mi Stack",
       showMore: (n) => `Ver más (${n} más)`,
       showLess: "Ver menos",
-      groupLabels: { languages: "Lenguajes", frameworks: "Frameworks", libraries: "Librerías", tools: "Herramientas" },
+      groupLabels: { languages: "Lenguajes", frameworks: "Frameworks", libraries: "Librerías", databases: "Bases de datos", tools: "Herramientas" },
     },
     skills: {
       title: "Mis Habilidades",
