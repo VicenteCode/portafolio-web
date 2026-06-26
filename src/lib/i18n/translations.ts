@@ -109,7 +109,7 @@ export const translations: Record<"en" | "es", LangTranslations> = {
         {
           id: "portfolio-web",
           title: "Portfolio Web",
-          description: "Personal portfolio built with Next.js App Router, statically generated in two languages (/en and /es) and served from Vercel's CDN edge. Includes scroll animations, bilingual CV download, and rate limiting on static assets.",
+          description: "Built with Next.js 16 App Router, React 19, TypeScript, and Tailwind CSS v4. URL-based i18n (/en, /es) with generateStaticParams — statically generated per locale and served from Vercel's CDN edge with zero origin requests. Edge middleware with sliding-window rate limiting on PDF downloads (5 req/min per IP). Feature-based architecture with atomic design and container-presentational pattern. Server Components by default, Client Components only where interactivity requires it. Animated UI with Framer Motion including scroll reveal effects and a custom canvas Moon animation. hreflang alternate links via generateMetadata for bilingual SEO.",
         },
       ],
     },
@@ -229,7 +229,7 @@ export const translations: Record<"en" | "es", LangTranslations> = {
         {
           id: "portfolio-web",
           title: "Portfolio Web",
-          description: "Portafolio personal construido con Next.js App Router, generado estáticamente en dos idiomas (/en y /es) y servido desde el edge CDN de Vercel. Incluye animaciones en scroll, descarga de CV bilingüe y rate limiting sobre assets estáticos.",
+          description: "Construido con Next.js 16 App Router, React 19, TypeScript y Tailwind CSS v4. i18n basado en URL (/en, /es) con generateStaticParams — generado estáticamente por idioma y servido desde el edge CDN de Vercel sin requests al origen. Middleware edge con rate limiting de ventana deslizante en descargas de PDF (5 req/min por IP). Arquitectura feature-based con diseño atómico y patrón contenedor-presentacional. Server Components por defecto, Client Components solo donde la interactividad lo requiere. UI animada con Framer Motion con efectos de scroll reveal y animación Moon con canvas personalizado. Links hreflang alternos vía generateMetadata para SEO bilingüe.",
         },
       ],
     },
