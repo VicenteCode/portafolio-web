@@ -21,20 +21,6 @@ type StaticProject = {
 
 export const PROJECTS_STATIC: StaticProject[] = [
   {
-    id: "portfolio-web",
-    images: ["/projects/PortafolioWeb.png"],
-    icons: [
-      { Icon: SiNextdotjs,    name: "Next.js"         },
-      { Icon: SiReact,        name: "React"           },
-      { Icon: SiTypescript,   name: "TypeScript"      },
-      { Icon: SiTailwindcss,  name: "Tailwind CSS"    },
-      { Icon: SiFramer,       name: "Framer Motion"   },
-    ],
-    links: [
-      { label: "GitHub", href: "https://github.com/VicenteCode/portafolio-web", icon: SiGithub },
-    ],
-  },
-  {
     id: "fadeforge-api",
     images: ["/projects/ProyectoApiFadeForge.jpeg"],
     icons: [
@@ -46,6 +32,20 @@ export const PROJECTS_STATIC: StaticProject[] = [
     ],
     links: [
       { label: "GitHub", href: "https://github.com/FadeForge-Gestor/fadeforge-api", icon: SiGithub },
+    ],
+  },
+  {
+    id: "portfolio-web",
+    images: ["/projects/PortafolioWeb.png"],
+    icons: [
+      { Icon: SiNextdotjs,    name: "Next.js"         },
+      { Icon: SiReact,        name: "React"           },
+      { Icon: SiTypescript,   name: "TypeScript"      },
+      { Icon: SiTailwindcss,  name: "Tailwind CSS"    },
+      { Icon: SiFramer,       name: "Framer Motion"   },
+    ],
+    links: [
+      { label: "GitHub", href: "https://github.com/VicenteCode/portafolio-web", icon: SiGithub },
     ],
   },
 ];
