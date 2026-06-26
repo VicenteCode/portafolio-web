@@ -101,6 +101,11 @@ export const translations: Record<"en" | "es", LangTranslations> = {
       title: "My Projects",
       items: [
         {
+          id: "portfolio-web",
+          title: "Portfolio Web",
+          description: "Personal portfolio built with Next.js App Router, statically generated in two languages (/en and /es) and served from Vercel's CDN edge. Includes scroll animations, bilingual CV download, and rate limiting on static assets.",
+        },
+        {
           id: "fadeforge-api",
           title: "FadeForge API",
           description: "REST API for appointment management in barbershops. Built with Hexagonal Architecture, JWT authentication, role-based access control, and Swagger documentation.",
@@ -215,6 +220,11 @@ export const translations: Record<"en" | "es", LangTranslations> = {
     project: {
       title: "Mis Proyectos",
       items: [
+        {
+          id: "portfolio-web",
+          title: "Portfolio Web",
+          description: "Portafolio personal construido con Next.js App Router, generado estáticamente en dos idiomas (/en y /es) y servido desde el edge CDN de Vercel. Incluye animaciones en scroll, descarga de CV bilingüe y rate limiting sobre assets estáticos.",
+        },
         {
           id: "fadeforge-api",
           title: "FadeForge API",
