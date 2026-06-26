@@ -59,7 +59,7 @@ export function CardProject({ title, description, images, icons, links, inProgre
       >
         <div className="flex flex-col gap-3 p-5">
           <h3 className="text-lg font-bold text-red-500">{title}</h3>
-          <p className="text-sm text-zinc-200 leading-6 text-pretty">{description}</p>
+          <p className="text-sm text-zinc-200 leading-6 text-justify hyphens-auto">{description}</p>
         </div>
 
         <div

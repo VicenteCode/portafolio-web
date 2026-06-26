@@ -109,7 +109,7 @@ export const translations: Record<"en" | "es", LangTranslations> = {
         {
           id: "portfolio-web",
           title: "Portfolio Web",
-          description: "Built with Next.js 16 App Router, React 19, TypeScript, and Tailwind CSS v4. URL-based i18n (/en, /es) with generateStaticParams — statically generated per locale and served from Vercel's CDN edge with zero origin requests. Edge middleware with sliding-window rate limiting on PDF downloads (5 req/min per IP). Feature-based architecture with atomic design and container-presentational pattern. Server Components by default, Client Components only where interactivity requires it. Animated UI with Framer Motion including scroll reveal effects and a custom canvas Moon animation. hreflang alternate links via generateMetadata for bilingual SEO.",
+          description: "Next.js 16 App Router with URL-based i18n (/en, /es) and static generation per locale — served from Vercel's CDN edge with zero origin requests. Edge middleware with sliding-window rate limiting on PDF downloads. Feature-based architecture with Server Components by default and animated UI built with Framer Motion.",
         },
       ],
     },
@@ -229,7 +229,7 @@ export const translations: Record<"en" | "es", LangTranslations> = {
         {
           id: "portfolio-web",
           title: "Portfolio Web",
-          description: "Construido con Next.js 16 App Router, React 19, TypeScript y Tailwind CSS v4. i18n basado en URL (/en, /es) con generateStaticParams — generado estáticamente por idioma y servido desde el edge CDN de Vercel sin requests al origen. Middleware edge con rate limiting de ventana deslizante en descargas de PDF (5 req/min por IP). Arquitectura feature-based con diseño atómico y patrón contenedor-presentacional. Server Components por defecto, Client Components solo donde la interactividad lo requiere. UI animada con Framer Motion con efectos de scroll reveal y animación Moon con canvas personalizado. Links hreflang alternos vía generateMetadata para SEO bilingüe.",
+          description: "Next.js 16 App Router con i18n basado en URL (/en, /es) y generación estática por idioma — servido desde el edge CDN de Vercel sin requests al origen. Middleware edge con rate limiting de ventana deslizante en descargas de PDF. Arquitectura feature-based con Server Components por defecto y UI animada con Framer Motion.",
         },
       ],
     },
